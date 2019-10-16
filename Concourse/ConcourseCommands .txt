@@ -1,0 +1,32 @@
+Concourse commands:
+
+For Creating Pipeline inorder to get Common and Javapipelines yml and script files
+
+login into fly
+fly -t cf-basic-synthetics login -c https://ci.<orgurl>.net/ /n <orgname>   
+
+To execute the pipeline
+fly -t  cf-basic-synthetics set-pipeline -c pipeline.yml -p <pipeline-name>
+
+To destroy the pipeline
+
+fly -t tutorial destroy-pipeline -p <pipeline-name>   --------------> inorder to destroy the created pipeline
+fly -t cf-basic-synthetics destroy-pipeline -p job-hello-world-second
+                                                (name inthe pipeline)
+												
+	
+Inorder to intercept build
+fly -t  cf-basic-synthetics intercept -j <pipeline-name>/unit	
+
+
+
+Vault login commands:
+
+commands:
+vault login -method=ldap username=xxxxx
+ vault write secret/ci/<orgname>/eom xspsrvcacct.username=eomgithub xspsrvcacct.password=xxxxx
+vault read secret/ci/<orgname>/eom
+
+####### Watch the current build log on command prompt
+>fly -t eom watch /j:<pipeline-name>/build
+

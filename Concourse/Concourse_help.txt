@@ -1,0 +1,28 @@
+Concourse Commands
+
+Login and create a target in your local (target is just alias using which you need to execute concouse commands so it will execute the command on that particular target)
+fly --target eom login --concourse-url https://ci.<orgurl>.net /n <orgname>
+
+Create pipeline
+fly -t eom sp -c pipeline.yml -p <pipeline-name>
+
+Destroy pipeline
+fly -t eom destroy-pipeline -p <pipeline-name>
+
+Command to generate pipeline.yaml
+./create-pipeline.sh <orgname> <pipeline-name> deployment-manifests
+
+Vault login
+vault login -method=ldap username=xxxxx
+
+Vault write secrets
+vault write secret/ci/<orgname>/eom xspsrvcacct.username=eomgithub xspsrvcacct.password=******
+
+Generate Git SSH Key for concourse access
+https://help.github.com/enterprise/2.14/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+
+Check file permissions in Git
+git ls-files --stage
+
+Give executable permission to Git files
+git update-index --chmod=+x java-pipeline/scripts/unit-test.sh
