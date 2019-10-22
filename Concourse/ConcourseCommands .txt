@@ -24,7 +24,7 @@ Vault login commands:
 
 commands:
 vault login -method=ldap username=xxxxx
- vault write secret/ci/<orgname>/eom xspsrvcacct.username=eomgithub xspsrvcacct.password=xxxxx
+ vault write secret/ci/<orgname>/eom acct.username=name acct.password=xxxxx
 vault read secret/ci/<orgname>/eom
 
 ####### Watch the current build log on command prompt
