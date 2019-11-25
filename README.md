@@ -1,2 +1,2 @@
 # DevOps-Resources
-This Folder contains learning resources of various DevOps tools.
+This Folder contains learning resources of various DevOps tools, Languages and Frameworks.
