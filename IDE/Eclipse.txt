@@ -1,0 +1,63 @@
+Basic:
+Ctrl + M - Max and Min
+Ctrl + Space - Intellisense (Autosuggestion)
+Ctrl + 1 - Autocorrects and suggests more options (used mostly during compilation errors)
+Alt + Up Arrow / Down arrow - to move a line up/down
+
+Debug mode:
+F5 - Go into the function (step into)
+F6 - does the fucntion call and goes to the next fucntion(step over)
+F8 - Go ahead and execute the rest of the program (used when step into sysout for eg.)
+Inspect - to see what is the current value while debugging
+Watch - add an expression like num * 3 or num * sum - to see what value it gives
+Double click on a variable's value to change it during the execution
+To activate conditional break point, double click on the break point in the breakpoint window and check 'conditional' and 
+enter the condition in the text box below (use when we have to debug from the middle elements of an array)
+
+Shortcuts:
+Ctrl+Shift+L - to see th list of shortcuts in eclipse
+Ctrl+Shift+R  - to search for any resource (for searching java classes and directly go there - just user written)
+Ctrl+Shift+T - to search for any resource (for searching java classes and directly go there - user written + in built classes)
+For the above two searches, just type the capital letters in the class, it will search quickly (For Eg. AL for ArrayList)
+Ctrl+/ - Comment/uncomment the entire piece of code
+F4 - Double click on a class name and press F4 to see the type hierarchy of classes in the type hierarchy window
+(to see the inheritance relationships and all the methods it has)
+Ctrl + T - to quickly see the type hierarchy of classes in the same window (doesn't show the methods that class has)
+Ctrl + O - to quickly see the methods and variables that class has in the same window (doesn't show the type hierarchy of classes)
+Ctrl + D - to delete the current line
+Ctrl + L - to go to a particular line
+Ctrl + Q - to got the point of last edit
+F3 - place the cursor on a particular class and press F3 to go to that class (similar to Ctrl + Left click)
+Toggle breadcrumbs - to see the complete path of a file (folder name, package name etc.--> shows jars as well)
+Mark occurences - highlight a variable to see whereall it's used
+
+Refractoring:
+Ctrl+Shift+M - to extract a method seperately 
+Ctrl+Shift+I - to inline that method (opposite of Ctrl+Shift+M)
+Alt+Shift+R - to rename a variable and all it's references (use instead of find and replace)
+Alt+Shift+L - to extract a local variable
+Alt+Shift+I - to inline that variable (opposite of Alt+Shift+L)
+Alt+Shift+T - to extract a constant (not a  direct shortcut)
+Alt+Shift+C - to change the signature of a method (will add or remove the arguments and will pass the values provided wherever the method is called)
+Alt+Shift+V - to move a method from one class to another class
+
+Code generation:
+Alt+Shift+S - to generate getters and setters (not a  direct shortcut) - select the variables to just generate for the selected ones and not all
+use the above shortcut to generate toString methods as well - we can select the required code style as well
+use the above shortcut to generate equals and hashcode methods as well
+use the above shortcut to generate constructors as well
+use the above shortcut to generate override and implement methods as well
+
+
+
+
+
+
+
+
+
+
+
+
+
+
