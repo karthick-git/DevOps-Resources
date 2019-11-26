@@ -40,6 +40,7 @@ Alt+Shift+I - to inline that variable (opposite of Alt+Shift+L)
 Alt+Shift+T - to extract a constant (not a  direct shortcut)
 Alt+Shift+C - to change the signature of a method (will add or remove the arguments and will pass the values provided wherever the method is called)
 Alt+Shift+V - to move a method from one class to another class
+Ctrl+Shift+F - to format the text
 
 Code generation:
 Alt+Shift+S - to generate getters and setters (not a  direct shortcut) - select the variables to just generate for the selected ones and not all
@@ -47,6 +48,25 @@ use the above shortcut to generate toString methods as well - we can select the 
 use the above shortcut to generate equals and hashcode methods as well
 use the above shortcut to generate constructors as well
 use the above shortcut to generate override and implement methods as well
+
+Auto formatting:
+window-preferences-type 'format'-code style-format- customize the format
+window-preferences-type 'save'- editor -save actions - select options accordingly to auto format whenever we save
+
+Views:
+Ctrl+Alt+H - to view call hierarchy (where the method is called)
+F4 - to view type hierarchy
+
+Perspectives:
+When we want to learn about a project, use java browsing Perspectives
+
+Plugins:
+Checkstyle
+Infinite test
+PMD
+Find bugs
+Sonarlint
+Hudson/Jenkins
 
 
 
