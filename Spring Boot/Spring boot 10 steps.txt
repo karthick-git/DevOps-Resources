@@ -1,0 +1,77 @@
+Step01-SpringBootGoalsAndImportantFeatures:
+
+Goals of Spring Boot:
+Enable building production ready app quickly
+-Instead of building one big monolith application, build many smaller microservices
+
+provide common nonfunctional features
+-embedded servers
+-metrics
+-health checks
+-externalized config
+
+what spring Boot is not:
+ZERO code generation
+neither an app server nor a web server -it provides great integration with embedded servers like tomcat, jetty etc.
+
+Features:
+quick starter projects with auto config
+-web
+-JPA
+If we are building a web app, we need spring mvc, spring core, validation framework, logging framework. In addition to that we need to configure everything needed.
+For eg. dispatcher servlet, view resolvers etc.
+But with spring boot starter web we get spring mvc, spring core, validation framework, logging framework all these as a package
+Similarly with spring boot starter JPA, we get default implementation of JPA, Hibernate, ORM
+So we don't need to worry about framework, we can directly start with building entities
+-embedded servers (tomcat,jetty,undertow)
+If we are planning to deploy our application in to a linux server, in olden days we have to install linux-->Java-->Tomcat-->deploy app war
+But in Spring Boot we can package the tomcat server with the app jar. So if I have java installed on linux, I can directly run my app, I don't need to install tomcat seperately.
+production ready features
+-mertrics and health checks
+-externalized config
+Spring boot provides monitoring for our app through spring boot actuators.
+we can find out how many times a service was called, how many times a service failed,service is up and running or not
+Config can be different for different envs. SO just creating a simple property in property file will do the job for us
+Also provides support for different profiles
+
+
+Step02-DevelopingSpringApplicationsBeforeSpringBoot:
+
+In Spring MVC, 
+we have to decide which dependencies to use and which versions of them to use
+Jackson databind - to do data binding and validation
+Log4j - for logging
+default exception has to be implemented
+complete spring config file has to be created
+view resolver - to redirect the views to JSP
+message source - to implement internationalization
+complete web.xml file has to be created
+dispatcher servlet - to handle all the requests and act as a front controller
+spring security filter checks - to intercept all the requests
+
+Step04-CreatingASimpleRESTController
+Tomcat runs on port 8080 by default
+@RestController -serves rest requests
+Whenever creating a bean, add constructor, toString, Getters & Setters as required
+@GetMapping - to map a GET request
+
+Step05-WhatIsSpringBootAutoConfiguration?
+@SpringBootApplication - denotes that it's a spring context file and it enables auto config and it enables component scan
+component scan - it would start scanning classes in the same package and subpackages for any beans, so class with @RestController will be registered as a component
+SpringApplication.run - used to run the spring context and also returns app context
+How is auto config happening?
+As a part of Spring Boot framework, we have spring boot auto config in dependencies-->spring boot auto config-->autoconfig.web.servlet-->DispatcherServletAutoConfiguration.class
+Spring Boot basically looks at 2 things
+1.  framework available on class path
+2.existing beans configured for the application
+based on these spring boot provides basic config needed to configure the application with these framework
+In app.property logging.level.org.springframework = DEBUG would start the app in debug mode will provide a debug mode report
+
+Step06-SpringBootvsSpringvsSpringMVC
+What's the core problem that Spring MVC solves?
+Most important feature of Spring Framework is Dependency Injection. At the core of all Spring Modules is Dependency Injection or IOC Inversion of Control.
+https://www.springboottutorial.com/spring-boot-vs-spring-mvc-vs-spring
+
+Step07-SpringBootStarterProjects-StarterWebandStarterJPA
+    
+

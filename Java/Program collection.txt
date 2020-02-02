@@ -1,0 +1,346 @@
+//Fibonacci series upto given number
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	    int a=0,b=1,c=0;
+	    for(int i=1;i<=n;i++){
+	        System.out.println(a+" ");
+	        c=a+b;
+	        a=b;
+	        b=c;
+	    }
+	    
+	}
+}
+
+//Check whether the given number is prime
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    int flag = 0;
+	    Scanner sc = new Scanner(System.in);
+	    long n = sc.nextLong();
+	    if(n==0||n==1){
+	        System.out.print(n+" is not prime");
+	    }else{
+	    for(long i=2;i<n;i++){
+	        if(n%i==0){
+	           flag = 1;
+	           break;
+	        }
+	    }
+	    if(flag==1){
+	        System.out.print(n+" is not prime");
+	    }else{
+	        System.out.print(n+" is prime");
+	    }
+		}
+	}
+}
+
+//To find whether the given string is a palindrome (with StringBuffer)
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    String input = new Scanner(System.in).next();
+	    StringBuffer sb =new StringBuffer(input);
+	    sb= sb.reverse();
+	    if(input.equals(sb.toString())||input.contentEquals(sb)){
+	        System.out.print("it is a palindrome");
+	    }else{
+	        System.out.print("it is not a palindrome");
+	    }
+	}
+}
+
+//To find whether the given string is a palindrome (with StringBuilder)
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    String input = new Scanner(System.in).next();
+	    StringBuilder sb =new StringBuilder(input);
+	    sb= sb.reverse();
+	    if(input.equals(sb.toString())||input.contentEquals(sb)){
+	        System.out.print("it is a palindrome");
+	    }else{
+	        System.out.print("it is not a palindrome");
+	    }
+	}   
+}
+
+//To find whether the given string is a palindrome (with for loop and array)
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    String input = new Scanner(System.in).next();
+	    String output="";
+	    char[] arr = input.toCharArray();
+	    for(int i=input.length()-1;i>=0;i--){
+	        output+=arr[i];
+	    }
+	    System.out.println(output);
+	    if(input.equals(output)||input.contentEquals(output)||input.equalsIgnoreCase(output)){
+	        System.out.print("it is a palindrome");
+	    }else{
+	        System.out.print("it is not a palindrome");
+	    }
+	}
+}
+
+//To find whether the given Integer is a palindrome
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    int input = new Scanner(System.in).nextInt();
+	    int originalnumber = input;
+	    int n =0;
+	    String revnum = "";
+	    while(input!=0){
+	        n = input%10;
+	        input/=10;
+	        revnum +=n;
+	    }
+	    System.out.println(revnum);
+	    if(originalnumber==Integer.parseInt(revnum)){
+	        System.out.print("it is a palindrome");
+	    }else{
+	        System.out.print("it is not a palindrome");
+	    }
+	}
+}
+
+//To find whether the given number is an amstrong number
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+	    int input = new Scanner(System.in).nextInt();
+	    int originalnumber = input;
+	    int n=0,output=0;
+	    while(input!=0){
+	        n=input%10;
+	        output+=Math.pow(n,3);
+	        input/=10;
+	    }
+	    System.out.println(output);
+	    if(output==originalnumber){
+	        System.out.print("it is an amstrong number");
+	    }else{
+	        System.out.print("it is not an amstrong number");
+	    }
+	}
+}
+
+//To find the factorial of a given number
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+	    int input = new Scanner(System.in).nextInt();
+	    int factorial =1;
+	    while(input!=0){
+	        factorial*=input;
+	        input--;
+	    }
+	    System.out.println(factorial);
+	}
+}
+
+//Reverse a sentence word by word
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args) {
+    
+        Scanner in = new Scanner(System.in);
+        String input = in.nextLine();
+	    String revString = "";
+	    String[] words = input.split("\\s");
+
+	    for(int i=0;i<words.length;i++){
+	       String word =  words[i];
+	       String revWord = "";
+	       for(int j=word.length()-1;j>=0;j--){
+	        revWord+=word.charAt(j);
+	       }
+	        revString+=revWord+" ";
+	    }
+	    System.out.println(revString);
+	}
+}
+
+//Reverse a sentence completely
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args) {
+    
+        Scanner in = new Scanner(System.in);
+        String input = in.nextLine();
+        String output="";
+	    for(int i=input.length()-1;i>=0;i--){
+	        output+= input.charAt(i);
+	    }
+	    System.out.println(output);
+	}
+}
+
+//Remove duplicates from an array
+import java.util.Scanner;
+import java.util.*;
+public class Main
+{
+    public static void main(String[] args) {
+    
+        Scanner in = new Scanner(System.in);
+        int total = in.nextInt();
+        List<Integer> numbers = new ArrayList<Integer>();
+        for(int i=0;i<total;i++){
+            numbers.add(in.nextInt());
+        }
+        System.out.println(numbers);
+        
+        Set<Integer> noDuplicates = new LinkedHashSet<Integer>(numbers);
+        numbers.clear();
+        numbers.addAll(noDuplicates);
+        System.out.println(numbers);
+	}
+}
+
+//Printing patterns |_ shape
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args) {
+    
+        Scanner in = new Scanner(System.in);
+        int total = in.nextInt();
+        for(int i=0;i<total;i++){
+            for(int j=0;j<=i;j++){
+            System.out.print("*");
+            }
+            System.out.println();
+        }
+	}
+}
+
+//Printing patterns F shape
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+        int total = in.nextInt();
+        for(int i=total;i>=0;i--){
+            for(int j=0;j<i;j++){
+            System.out.print("*");
+            }
+            System.out.println();
+        }
+	}
+}
+
+//Printing pyramid of characters
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+        int total = in.nextInt();
+        for(int i=0;i<total;i++){
+            for(int j=0;j<total-i;j++){
+            System.out.print(" ");
+            }
+            for(int k=0;k<=i;k++){
+            System.out.print("* ");
+            }
+            System.out.println();
+        }
+	}
+}
+
+//GCD of two numbers
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+        int num1 = in.nextInt();
+        int num2 = in.nextInt();
+        int result =0;
+        if(num1>num2){
+			for (int i=1;i<num1;i++) {
+				if((num1%i==0)&&(num2%i==0)){
+					result=i;
+				}
+			}
+		}
+        else{
+            for(int i=1;i<num2;i++) {
+            	if((num1%i==0)&&(num2%i==0)){
+                	result=i;
+            	}
+        	}
+		}
+        System.out.println(result);
+	}
+}
+
+//Find a square root of a number
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+        double num1 = in.nextDouble();
+        double result = Math.sqrt(num1);
+        System.out.println(result);
+	}
+}
+
+//Find a square root of a number using Newton's method
+import java.util.Scanner;
+import java.lang.Math;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+        Float Number = in.nextFloat();
+        float sqrRoot = 0;
+        float temp = 0;
+        temp = Number/2;
+        while (Number >= 0.0)    {
+            sqrRoot = temp - (temp * temp - Number) / (2 * temp);
+            float value;
+            value = Math.abs(temp - sqrRoot);
+            if (value < .0001)
+                break; 
+            else temp = sqrRoot;
+        } 
+        System.out.println(sqrRoot);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
