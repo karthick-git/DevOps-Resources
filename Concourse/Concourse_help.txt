@@ -26,3 +26,8 @@ git ls-files --stage
 
 Give executable permission to Git files
 git update-index --chmod=+x java-pipeline/scripts/unit-test.sh
+
+Concourse Tutorial - https://concoursetutorial.com/
+Concourse Documentation - https://concourse-ci.org/docs.html
+Concourse Examples - https://concourse-ci.org/examples.html
+Concourse Resources Repository (can be searched here) - https://github.com/concourse
