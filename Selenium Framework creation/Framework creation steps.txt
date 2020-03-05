@@ -1,0 +1,55 @@
+Prerequisites
+Java is installed on the system
+Eclipse is installed on the system
+Maven is installed on the system
+
+Create a Maven project in Eclipse
+add dependencies in pom.xml
+directly copy & paste the dependencies in pom.xml from maven repository -->Selenium java or go to the dependencies tab in pom.xml
+and give the groupID, artifactID & version, it will get added in pom.xml
+The list of dependencies required for creating a basic selenium java framework
+Selenium Java
+junit
+geckodriver
+
+create a folder inside the project called driver and place the drivers inside that
+To add gecko driver exe
+System.setProperty("webdriver.gecko.driver",” path to gecko driver exe”);
+OR
+System.setProperty("webdriver.firefox.marionette", “path to gecko driver exe”);
+If we are setting the driver path in environment variables --> path, we don't need to use System.setProperty in the code
+after setting the path, open cmd and type ChromeDriver.exe and hit enter, the driver should start running successfully
+
+How to add Chrome Driver
+Run a test on Chrome browser
+System.setProperty("webdriver.chrome.driver",”location of
+chromedriver”);
+Webdriver driver = new ChromeDriver();
+
+helpful tips
+Always check the latest version of chrome driver from https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver
+
+How to add IE Driver
+System.setProperty("webdriver.ie.driver",”location of iedriver”);
+Webdriver driver = new InternetExplorerDriver();
+
+helpful tips
+Always check the latest version of ie driver from https://github.com/SeleniumHQ/selenium/wiki/InternetExplorerDriver
+If IE is throwing protected mode settings are not the same for all zones error, open IE-->Settings-->Security
+uncheck Enable protected mode under all 4 icons-->apply & close
+
+Use WebDriver Manager for Automatic management of browser drivers for Selenium
+Uses : don't need to download drivers.exes for any browser
+WebDriverManager.chromedriver().setup();
+WebDriverManager.firefoxdriver().setup();
+WebDriverManager.operadriver().setup();
+WebDriverManager.phantomjs().setup();
+WebDriverManager.edgedriver().setup();
+WebDriverManager.iedriver().setup();
+References
+https://github.com/bonigarcia/webdrivermanager
+
+Use the below sample code
+WebDriverManager.chromedriver().setup(); or WebDriverManager.chromedriver().version("").setup();
+Webdriver driver = new ChromeDriver();
+
