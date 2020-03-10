@@ -53,3 +53,102 @@ Use the below sample code
 WebDriverManager.chromedriver().setup(); or WebDriverManager.chromedriver().version("").setup();
 Webdriver driver = new ChromeDriver();
 
+helpful tips
+Check your selected locator in different browsers
+Can take help of tools for generating xpath and cssSelectors like chropath plugin or xmltoolbox.appspot.com
+Can ask developers to provide unique ids to every web element for easy identification and location
+
+Implement POM
+
+A Design Principle where we Create separate Object Repository to store object locators
+For each web page there should be a separate page class
+The page class will have all object locators and preferably
+action methods for the corresponding page
+
+Step 1 :
+Create a class for each web page
+Step 2 :
+Add object locators
+Step 3 :
+Create class for test
+Step 4 :
+Refer objects from page classes
+Step 5 :
+Run and validate
+
+Benefits of POM
+=============
+Test Objects and Functions are separated for easy
+maintenance and keeping the code clean
+Objects are kept separated from test scripts and can be
+used multiple times in multiple tests
+Every unique object locator is created only once
+Easy Maintenance and Less Rework
+
+What is TestNG
+TestNG is a testing framework for the Java programming
+language created by Cédric Beust and inspired by JUnit
+and NUnit.
+Makes test creation, execution and reporting efficient
+Uses annotations like
+@BeforeTest, @AfterTest,
+@BeforeSuite, @AfterSuite
+@BeforeMethod, @AfterMethos
+@BeforeClass, @AfterClass
+NG = Next Generation
+
+Install TestNG for selenium
+help-->Install new software -->Add "https://dl.bintray.com/testng-team/testng-eclipse-release"
+the above URL was taken from https://github.com/cbeust/testng-eclipse/
+Select Next and finish
+
+Add TestNG libraries
+Configure build path --> add libraries --> testng--> finish
+Or add maven dependency for TestNG from mvnrepository.com
+
+Advantages of TestNG
+Makes test creation, execution and reporting efficient
+Helps in Grouping of tests
+Helps in Prioritizing of tests
+Parallel execution
+Reporting
+
+Creating TestNG.xml file
+RC on the project --> TestNG --> Convert to TestNG
+Use Include/Exclude methods in TestNg xml to Include and Exclude the methods in a class for running
+
+Uses of TestNG.xml
+include tests, class, packages etc
+exclude tests, class, package etc
+set test dependency
+set test priorities
+pass parameters to test methods
+run in parallel
+
+What is Extent Reports | How to use Extent Reports in
+Selenium
+What is Extent Report
+HTML Reporting library
+ExtentReports is an open-source reporting API for Java
+and .NET. It creates an interactive HTML report of your
+test session.
+ExtentReports also has a commercial version (Pro)
+How to implement ExtentReports in Selenium Java
+Step 1 :
+Add ExentReports libraries in project
+You can add jars or maven dependency
+Step 2 :
+Create references of ExtentReport func
+Step 3 :
+Use ExtentReport functions
+log, info, pass, fail etc
+Step 4 :
+Run and Validate
+
+Maven dependency can be copied from ExtentReports.com
+To see an example for implementing ExtentReports, go to documentation --> Java --> Examples
+
+What is DesiredCapabilities
+A class in Selenium library org.openqa.selenium.remote.DesiredCapabilities
+Describes a series of key/value pairs
+Used to set properties for browser like BrowserName, Platform, Version etc
