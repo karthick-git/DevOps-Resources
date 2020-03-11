@@ -152,3 +152,123 @@ What is DesiredCapabilities
 A class in Selenium library org.openqa.selenium.remote.DesiredCapabilities
 Describes a series of key/value pairs
 Used to set properties for browser like BrowserName, Platform, Version etc
+
+What is Log4j
+Log4j is a java based logging framework
+Is simple, flexible, reliable and fast
+Is configured through a configuration file Log4j.xml OR log4j.properties etc...
+Practical Example
+Step 1:
+Add Log4j libraries in the java project
+Can add jar files or maven dependency
+https://logging.apache.org/log4j/2.x/download.html
+Step 2 :
+Create reference for Logger in the class
+Class where you want to add log statements
+Step 3 :
+Create log4j.xml or log4j.properties file
+Step 4 :
+Run and Validate
+Log4j - log levels
+TRACE
+Most detailed information. Expect these to be written to logs only. Since version 1.2.12
+DEBUG
+Detailed information on the flow through the system.
+Expect these to be written to logs only. Generally speaking, most lines logged by your application should be written as DEBUG
+INFO
+Interesting runtime events (startup/shutdown). Expect these to be immediately visible on a console, so be conservative and keep to a minimum.
+WARN
+Use of deprecated APIs, poor use of API, 'almost' errors,
+other runtime situations that are undesirable or unexpected, but not necessarily "wrong". Expect these to be immediately visible on a status console.
+ERROR
+Other runtime errors or unexpected conditions. Expect these to be immediately visible on a status console.
+FATAL
+Severe errors that cause premature termination. Expect these to be immediately visible on a status console.
+OFF
+The highest possible rank and is intended to turn off logging.
+** built-in log levels with increasing order of severity
+helpful tips
+You can configure to append or overwrite logs in file
+You can set logging OFF when not required in case heavy logging is making your runs slower...
+Log4j - Configuration File
+Log4j is configured through a configuration file
+Configuration files can be written in XML, JSON, YAML, or properties file format
+Set of key-value pairs. Within a configuration you can define three main components:
+Loggers
+Appenders
+Layouts
+Configuring logging via a file has the advantage that logging can be turned on or off without modifying the application that uses Log4j.
+Log4j - FAQ
+Written in Java | Cross platform
+part of the Apache Logging Services
+initial release - January 8, 2001
+Repository - https://github.com/apache/logging-log4j2
+Website - https://logging.apache.org/log4j/2.x/
+On August 5, 2015 the Apache Logging Services Project
+Management Committee announced that Log4j 1 had
+reached end of life and that users of Log4j 1 are
+recommended to upgrade to Apache Log4j 2.
+
+If the log4j properties ot xml is not configured, only error and fatal logs will be logged.
+Configuring properties is much more simpler than Configuring xml
+save the properties as log4j2.properties instead of log4j.properties as the former is deprecated
+the properties file can be built from scratch by using the springframework guru article
+set the log level in properties to trace as it will log all the info
+use appender.file.append=true to append logs instead of overwriting
+if we want to turn off the logging, logger.file.level=off
+priority -- properties>xml
+
+Log4j can be setup in baseclass and called anywhere in the scripts using super
+but log4j2 should be declared in each and every class' setup method, since it takes class name as parameter
+and it prints classname in front of each and every log for better identification
+
+Exception Handling
+Exception - unexpected condition at runtime
+Handling any unexpected behavior during execution
+Catch the exception and log messages for troubleshooting
+Enables continuation of runs even if a test fails
+
+What is a properties file
+Properties file is a file with .properties as extension
+(e.g config.properties)
+Is used in Java (and related technologies) to store
+configurable parameters
+Parameters as stored as key:value pairs (key=value)
+example:
+browser=firefox
+
+How to create a properties file
+Create a new file inside your java project and name it 
+with .properties extension.
+example config.properties
+
+How to get data from properties file
+Step 1
+Create a object of class Properties class
+Properties prop = new Properties();
+Step 2
+Create a object of class InputStream
+InputStream input = new FileInputStream("location of
+properties file");
+Step 3
+Load Properties file
+prop.load(input);
+Step 4
+Get values from Properties file
+prop.getProperty("browser");
+How to set data to properties file
+Step 1
+Create a object of class Properties class
+Properties prop = new Properties();
+Step 2
+Create a object of class OutputStream
+OutputStream output = new FileOutputStream("location of
+properties file");
+Step 3
+Set values
+prop.setProperty("result", "pass");
+Step 4
+Store values in properties file
+prop.store(output, "comments");
+Helpful Tips
+Use # or ! to put comments in properties file
