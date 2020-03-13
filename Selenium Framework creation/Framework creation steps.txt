@@ -201,7 +201,7 @@ Configuring logging via a file has the advantage that logging can be turned on o
 Log4j - FAQ
 Written in Java | Cross platform
 part of the Apache Logging Services
-initial release - January 8, 2001
+initial release - January a, 2001
 Repository - https://github.com/apache/logging-log4j2
 Website - https://logging.apache.org/log4j/2.x/
 On August 5, 2015 the Apache Logging Services Project
@@ -315,3 +315,244 @@ showing anything on the screen.
 Therefore it does not require the system to have a screen or gui.
 HtmlUnit browser can be run with Web Driver and not with Selenium RC.
 Selenium RC cannot support headless HtmlUnit browser.
+
+Why to use excel file
+In Selenium we can get data from external files like excel
+and csv
+MS Excel is most commonly used
+Helps to make our scripts independent of data handling
+Helps to add, update, manage data separately (outside
+the framework)
+Helps to make our framework data driven
+How to add excel libraries
+Step 1
+Add apache poi libraries
+Download and add Jars
+from : https://poi.apache.org/download.html
+OR
+Add maven dependency
+From : https://mvnrepository.com/artifact/org.apache.poi/
+poi-ooxml
+Step 2
+Check if the libraries are added in your project
+Get Row Count
+Step 1
+Create excel file and add some data
+Step 2
+Create references for Workbook
+for new excel format (xlsx)
+XSSFWorkbook workbook = new XSSFWorkbook(“excel
+file location”);
+for old excel format (xls)
+HSSFWorkbook workbook = new HSSFWorkbook(“excel
+file location”);
+Step 3
+Create references for Worksheet
+XSSFSheet sheet = workbook.getSheet(“sheet name”);
+Step 4
+Call row count function
+sheet.getPhysicalNumberOfRows();
+Get Cell Data
+Step 1
+Create references for Workbook
+XSSFWorkbook workbook = new XSSFWorkbook(“excel
+file location”);
+Step 2
+Create references for Worksheet
+XSSFSheet sheet = workbook.getSheet(“sheet name”);
+Step 3
+Call function to get cell data
+sheet.getRow(rownum).getCell(colnum).getStringCellValu
+e();
+sheet.getRow(rownum).getCell(colnum).getNumericCellVa
+lue();
+How to call excel functions
+Step 1
+In all excel functions get rowNum, colNum as parameters
+This is to avoid hard coding of values and get the values
+from calling function
+Step 2
+Create a constructor
+A constructor is a special method without any return type
+and name same as the class name
+Constructor is called every time a class object is created
+using the new() keyword
+Step 3
+Parametrize the constructor
+To get excel path and sheet name
+Step 4
+Create a new class to call excel functions
+
+From mvnrepository download apache poi ooxml (open office xml) - 9 jars will be downloaded
+If we don't have MS office in our system, we can use kingsoft (WPS ofice)
+
+How to get test data from excel
+Step 1
+Create a function to get Row Count
+Step 2
+Create a function to get Column Count
+Step 3
+Create a function to get String cell data
+Step 4
+Create a function to get Numerical cell data
+How to create Excel Data Provider function
+Step 1
+Create a new class ExcelDataProvider
+Step 2
+Create a function and create object for ExcelUtils
+ExcelUtils excel = new ExcelUtils(“excelpath”,
+“sheetname”);
+Step 3
+Get row and column count
+int rowCount = excel.getRowCount();
+int colCount = excel.getColCount();
+Step 4
+Run a loop to get all data in an Object Array
+How to use testNG @DataProvider
+Step 1
+Create a function and provide testNG annotation
+@DataProvider(name = “testData”)
+Step 2
+Call the excel data provider function with excel and sheet
+name
+Step 3
+Return the data object
+How to get test data from excel
+Step 1
+Create a function and provide testNG annotation
+@Test(dataProvider = “testData”)
+Step 2
+In the function arguments, get input parameters equal to
+the parameters in the excel file
+Step 3
+Use the values in your test
+
+How to run Selenium tests on Jenkins
+
+Prerequisite
+Generate commands to run tests from command line
+How to setup Jenkins
+Step 1
+Download jenkins.war file
+https://jenkins.io/download/
+Step 2
+Run Jenkins
+java -jar jenkins.war
+java -jar jenkins.war --httpPort=9090
+Create job and run Selenium tests
+Step 1
+Create a new freestyle job
+BuildStep -->Execute windows bash command
+In Build --> command
+switch to the drive in which the project is located 
+then type cd and the full path of the project
+then type mvn clean test
+and then echo success
+Apply & save
+Then click Build now
+We can click on the build and see the logs Always
+
+To trigger jenkins with dev team's build
+go to Jobs-->Configure-->Build triggers-->and select the required options 
+jenkins-->Manage jenkins -->manage plugin--> Available section --> search for selenium and testng and install the required plugins
+
+To work with testng plugin in jenkins
+jenkins-->Manage jenkins -->manage plugin--> Available section --> search for testng results and install the plugin without restart
+Now go to Job--> Configure-->build-->post build actions-->publish testng results
+In the TestNG XML report pattern box we have to give the path of testng-results xml file which is present in the test-output folder of our project
+we can either give the absolute path of the file or General-->Advanced-->use custom workspace and give the path of project -->apply and save
+Build now again
+click on console output to see the logs
+After 2 builds, testng results will start showing graphs
+
+Test results analyzer plugin --> install (search for analyzer)
+this will show the run results in a tabular format
+
+Step 2
+Add details
+Add commands to run Selenium tests
+Step 3
+Apply and Save
+Step 4
+Run and validate
+
+How to run TestNG with M1ven Comm1nd Line | How to run Selenium J1v1 tests form comm1nd line
+
+Prerequisite | Java
+Java is installed on your system
+Eclipse is available
+Maven Java project is created in Eclipse
+Video links see below
+Prerequisite | TestNG
+TestNG plugin is added in eclipse
+TestNG dependency is added in pom.xml
+TestNG tests are created
+testng.xml file is created
+Video links see below
+Prerequisite | Maven
+Maven should be available on your system
+1 Download maven
+2 Add maven to environment variables
+Command : mvn -version
+How to add maven on Windows | Mac OS
+Video links see below
+How to run testng from maven command line
+Step 1
+Add maven surefire plugin in pom.xml
+https://maven.apache.org/surefire/maven-surefire-plugin/
+Step 2
+Provide location of your testng.xml file
+(you can provide complete path if facing any issues)
+Step 3
+Open cmd and goto location of project
+Step 4
+Run command | mvn clean test
+How to provide testng.xml file name at runtime
+Step 1
+In pom.xml in place of testng.xml file name give a reference
+a{fileName}
+Step 2
+In command add parameter
+-DfileName=testng1.xml
+
+What is Visual Validation
+Activity to validate the UI appears correctly to the user
+Visual validation includes testing UI components for their
+Location
+Size | Shape
+Color
+Pixel
+Resolution
+Fonts | Layouts | Charts
+etc...
+
+Create an account in applitools and sign in
+Run your first test-->under web sdks select selenium java-->under Prerequisites copy the maven dependency
+paste it in pom.xml to download the jar automatically
+it will download many dependencies
+Go to https://demo.applitools.com or http://demo.applitools.com/index_v2.html# and use them to run tests
+
+Click on my profile icon and get my api key --> pg1h101102ubc106VJHzp5siKtpYmL9f1087vUOU41000IapWWMVg110
+follow the instructions in https://applitools.com/tutorials/selenium-java.html
+Create a new class in the project and add the sample code provided in the above URL
+add Junit4 library to the build path
+set the APPLITOOLS_API_KEY in env variables in run as configuration with the one we got from our profile or 
+replace System.getenv("APPLITOOLS_API_KEY") with System.getenv(<Api key copied>)
+
+In the class createdRemove the page dimension set in eyes.open
+initialize webdriver properly
+import the correct junit annotations for before,after and test methods
+set page load timeouts and implicit waits for 30 and 20 secs at least'
+run the class as Junit test
+Refresh the applitools test results page and we should see the test results loaded
+
+It will always pass the first time and load that as the baseline iamge for comparing it with the future runs
+Running the same test second time will compare the results of previous run and pass or fail
+Now change the URL to http://demo.applitools.com/index_v2.html# and run again
+it will throw diffs found exception
+The test result will pass but the status will not show as failed, it will show unresolved, since it might be planned changes as well
+
+we can choose the comparison styles like exact,strict,content & layout
+The radar will show the differences
+Clicking on thumbs up will make the new image as baseline
+we can ignore dynamic regions
