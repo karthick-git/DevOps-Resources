@@ -566,3 +566,61 @@ a folder named allure reports will be generated
 Install allure from scoop, by going to cmd and scoop install allure
 once it's successfully installed, type allure serve <allure reports folder path>
 the allure report should open in browser successfully
+
+Allure annotations
+Allure supports the below annotations
+@Description("")
+@Epic("")
+@Feature("")
+@Story("")
+@Step("") 
+@Severity(SeverityLevel.abc)
+
+What are Headless Browsers
+Headless Browsers are web browsers without a head or GUI (Graphical User Interface)
+i.e. you cannot see anything on your screen, programs runs at backend.
+Headless Browsers are software programs that access the web pages but do not show them to the user.
+Headless Chrome
+Html Unit Browser
+Zombie.js
+PhantomJS
+TrifleJS
+SlimmerJS
+Why should we use Headless Browsers
+Headless Browsers can be used for :
+Running your test on a headless systems like linux os without gui.
+When you want simulate multiple browser behavior on a single machine.
+To use minimal resources (because there is no GUI)
+Need to run your test just for data creation
+When should we NOT use Headless Browsers
+Headless Browsers should not/cannot be used:
+If you need to visually observe your test on the browser
+It does not give you exact feedback of what your customers will actually experience
+on your website (Page loading speeds ...etc)
+Headless Browsers sometimes may throw errors that is not observed on real
+browsers
+Examples of Headless Browsers
+https://gist.github.com/evandrix/3694955
+
+Helpful Tips
+You can use actual browsers on a headless machine
+Real browsers can run in headless manner on systems with Linux with zero configurations. CI systems like Jenkins can be used.
+Read about Xvfb - X virtual frame buffer
+It is a display server that performs all graphical operations in memory without showing anything on the screen.
+Therefore it does not require the system to have a screen or gui.
+https://en.wikipedia.org/wiki/Xvfb
+https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin
+http://stackoverflow.com/questions/31848410/selenium-test-execution-via-jenkinson-linux-machine-without-gui-cli-only-he
+HtmlUnit browser can be run with Web Driver and not with Selenium RC.
+Selenium RC cannot support headless HtmlUnit browser.
+
+What is Headless Chrome
+A headless (non GUI) version of the Chrome Browser
+Since ver 59 Chrome supports a headless mode
+Available for Linux, MacOS & Windows
+(On Windows you should use Chrome ver 60+)
+How to use Headless Chrome
+ChromeOptions options = new ChromeOptions();
+options.addArguments(“headless”)
+
+
