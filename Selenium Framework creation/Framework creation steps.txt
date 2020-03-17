@@ -556,3 +556,13 @@ we can choose the comparison styles like exact,strict,content & layout
 The radar will show the differences
 Clicking on thumbs up will make the new image as baseline
 we can ignore dynamic regions
+
+Allure Reporting
+Add Allure jars from maven repository by searching for allure testng
+install scoop y going to powershell and iwr -useb get.scoop.sh | iex
+set the permission to current user if required
+run the tests and Refresh the project workspace
+a folder named allure reports will be generated
+Install allure from scoop, by going to cmd and scoop install allure
+once it's successfully installed, type allure serve <allure reports folder path>
+the allure report should open in browser successfully
