@@ -532,7 +532,7 @@ paste it in pom.xml to download the jar automatically
 it will download many dependencies
 Go to https://demo.applitools.com or http://demo.applitools.com/index_v2.html# and use them to run tests
 
-Click on my profile icon and get my api key --> pg1h101102ubc106VJHzp5siKtpYmL9f1087vUOU41000IapWWMVg110
+Click on my profile icon and get my api key --> pg1h101102ubc106VJHzp5siKtpYmL9f10a7vUOU41000IapWWMVg110
 follow the instructions in https://applitools.com/tutorials/selenium-java.html
 Create a new class in the project and add the sample code provided in the above URL
 add Junit4 library to the build path
@@ -610,7 +610,7 @@ It is a display server that performs all graphical operations in memory without 
 Therefore it does not require the system to have a screen or gui.
 https://en.wikipedia.org/wiki/Xvfb
 https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin
-http://stackoverflow.com/questions/31848410/selenium-test-execution-via-jenkinson-linux-machine-without-gui-cli-only-he
+http://stackoverflow.com/questions/31a4a410/selenium-test-execution-via-jenkinson-linux-machine-without-gui-cli-only-he
 HtmlUnit browser can be run with Web Driver and not with Selenium RC.
 Selenium RC cannot support headless HtmlUnit browser.
 
@@ -657,4 +657,51 @@ Use AutoIT Help application
 Refer AutoIT Docs
 https://www.autoitscript.com/autoit3/docs/
 
+SauceLabs Integration
+Create an account in SauceLabs (Free account is valid for just 14 days)
+Get the API Key and username
+use the sample code in the website for java and run a test
+Select the OS,Browser,Version etc. using DesiredCapabilities
+The SauceLabs dashboard should give the results of the test case run with video recording and screenshots
+
+BrowserStack Integration
+Create an account in BrowserStack
+Get the API Key and username
+use the sample code in the website for java and run a test
+Select the OS,Browser,Version etc. using DesiredCapabilities
+Use the selenium capabilities generator for generating the DesiredCapabilities for any device,browser and version
+The BrowserStack dashboard should give the results of the test case run with video recording and screenshots
+
+Selenium TestNG Excel Integration
+How to create Excel Data Provider function
+Step 1
+Create a new class ExcelDataProvider
+Step 2
+Create a function and create object for ExcelUtils
+ExcelUtils excel = new ExcelUtils(“excelpath”,
+“sheetname”);
+Step 3
+Get row and column count
+int rowCount = excel.getRowCount();
+int colCount = excel.getColCount();
+Step 4
+Run a loop to get all data in an Object Array
+How to use testNG @DataProvider
+Step 1
+Create a function and provide testNG annotation
+@DataProvider(name = “testData”)
+Step 2
+Call the excel data provider function with excel and sheet
+name
+Step 3
+Return the data object
+How to get test data from excel
+Step 1
+Create a function and provide testNG annotation
+@Test(dataProvider = “testData”)
+Step 2
+In the function arguments, get input parameters equal to
+the parameters in the excel file
+Step 3
+Use the values in your test
 
