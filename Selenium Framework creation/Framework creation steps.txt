@@ -186,7 +186,7 @@ FATAL
 Severe errors that cause premature termination. Expect these to be immediately visible on a status console.
 OFF
 The highest possible rank and is intended to turn off logging.
-** built-in log levels with increasing order of severity
+aa built-in log levels with increasing order of severity
 helpful tips
 You can configure to append or overwrite logs in file
 You can set logging OFF when not required in case heavy logging is making your runs slower...
@@ -271,7 +271,7 @@ Step 4
 Store values in properties file
 prop.store(output, "comments");
 Helpful Tips
-Use # or ! to put comments in properties file
+Use a or ! to put comments in properties file
 
 To retrieve the locators of a webpage, we can use katalon extension from chrome webstore
 It's like selenium IDE
@@ -530,7 +530,7 @@ Create an account in applitools and sign in
 Run your first test-->under web sdks select selenium java-->under Prerequisites copy the maven dependency
 paste it in pom.xml to download the jar automatically
 it will download many dependencies
-Go to https://demo.applitools.com or http://demo.applitools.com/index_v2.html# and use them to run tests
+Go to https://demo.applitools.com or http://demo.applitools.com/index_v2.htmla and use them to run tests
 
 Click on my profile icon and get my api key --> pg1h101102ubc106VJHzp5siKtpYmL9f10a7vUOU41000IapWWMVg110
 follow the instructions in https://applitools.com/tutorials/selenium-java.html
@@ -548,7 +548,7 @@ Refresh the applitools test results page and we should see the test results load
 
 It will always pass the first time and load that as the baseline iamge for comparing it with the future runs
 Running the same test second time will compare the results of previous run and pass or fail
-Now change the URL to http://demo.applitools.com/index_v2.html# and run again
+Now change the URL to http://demo.applitools.com/index_v2.htmla and run again
 it will throw diffs found exception
 The test result will pass but the status will not show as failed, it will show unresolved, since it might be planned changes as well
 
@@ -704,4 +704,136 @@ In the function arguments, get input parameters equal to
 the parameters in the excel file
 Step 3
 Use the values in your test
+
+What are TestNG Listeners
+Listeners are components in TestNG that listens ( keep a track ) of test
+execution and helps to perform actions at multiple stages of test execution
+Example
+OnStart
+OnFinish
+OnSuccess
+OnFailure
+Etc…
+Listeners are interfaces in TestNG library
+How to use TestNG listeners
+Step 1
+Create a new package and new Class
+Step 2
+Implement ITestListener interface
+public class TestNGListener implements ITestListener
+Step 3
+Add unimplemented methods of ITestListener interface
+Step 4
+Create a Demo class and provide annotation
+@Listeners(packageName.ClassName)
+Step 5
+Run and validate
+How to use at Suite Level (multiple classes)
+Step 1
+Create testng.xml file
+Step 2
+Define listeners in testng.xml file
+    <listeners>
+		<listener class-name="com.qa.lib.RetryListenerClass" />
+		<listener class-name="com.qa.lib.ListnerImpl" />
+	</listeners>
+Step 3
+Run and validate
+Adding more listeners from TestNG
+You can implement more listener interfaces in your existing class and add
+implemented methods
+
+How to set priority for tests in TestNG
+Sequence of execution when 
+When 2 or more tests have same priority
+When a class has both prioritized and non-prioritized methods
+When a class has no prioritized methods
+helpful tips
+Priority Parameter
+@Test(priority=1)
+What if two test methods have same priority
+- Will run as per alphabetical order
+- If No priority then alphabetical order
+What if a class has both prioritised and non-prioritised methods
+- First non-prioritised methods will be executed in alphabetical order
+
+TestNG Grouping | How to group tests
+What is Grouping
+Grouping is a feature in TestNG where we can assign tests or classes to one or
+more group.
+During execution, we can define what groups to include or exclude
+This makes test management and execution very easy and efficient
+
+TestNG How to use Parameters
+@Parameters annotation can be placed on any method that already has
+following annotations
+@Test
+@Before/After
+@Factory
+@Parameters annotation can also be placed class constructor
+In testng.xml you can put parameters under suite or test tag
+If two parameters have the same name, it's the one defined in test that has precedence.
+This is convenient if you need to specify a parameter applicable to all your
+tests and override its value only for certain tests.
+If both priorities and dependensOnMethods are used, dependensOnMethods will take precedence irrespective of priorities
+@ignore will ignore the tests
+It can be used at testmethod level, class level and package level
+for using it in package level, we need package-info file
+It can be created by RC on src folder --> new --> package--> name of package under which it should be created
+@ignore
+package <package-name>
+
+Retry failed Test classes
+Whenever there is a failure in test run, a new file called testng-failed.xml will be generated with the list of tests failed
+we can RC and run it manually
+Or create a batch file and run the testng-failed.xml automatically
+java -classpath testng.jar;%CLASSPATH% org.testng.TestNG -d test-outputs testng.xml
+java -classpath testng.jar;%CLASSPATH% org.testng.TestNG -d test-outputs test-outputs\testng-failed.xml
+Or If the retry has to happen immediately, we can use IRetryAnalyzer and run them with
+@Test(retryAnalyzer = <retryAnalyzer class name>.class)
+
+Selenium Waits | How to use Implicit and Explicit waits
+Why we use waits
+The elements load time on a web page can vary
+Not all the elements are loaded at the same time
+In applications developed using Ajax, Javascript etc, objects on web page may
+load at different time
+To handle this, we need to use waits in Selenium
+With the help of waits, we can enable the script to wait for sometime before
+throwing No Such Element exception
+What is implicit wait
+Is used to define a time (period) until when webdriver should wait before
+throwing No Such Element exception
+Syntax :
+driver.manage().timeouts().implicitlyWait(TimeOut, TimeUnit.SECONDS);
+note:
+By default it is set to 0
+It will poll for every 250ms
+Implicit wait is applicable for the entire session of browser
+What is explicit wait
+Explicit waits can be set for specific elements
+Can be set for a specific condition
+E.g. wait until element is clickable
+Syntax :
+WebDriverWait wait = new WebDriverWait(driver, 10);
+WebElement element =
+wait.until(ExpectedConditions.elementToBeClickable(By.id("abc")));
+You can set an implicit wait for entire session and
+Explicit wait for certain elements where you think it needs more time or you
+want to wait until some specific condition is try
+
+What is fluent wait | How to use fluent wait in Selenium
+What is fluent wait
+Fluent Wait - a class in Selenium api
+When you want to:
+apply wait to specific element
+set max wait time period
+set polling frequency
+set to ignore specific exceptions
+Syntax :
+ Wait wait = new FluentWait(driver)
+ .withTimeout(30, SECONDS)
+ .pollingEvery(5, SECONDS)
+ .ignoring(NoSuchElementException.class);
+
 
