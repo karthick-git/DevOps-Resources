@@ -1,0 +1,83 @@
+API Testing using Rest Assured (BDD Approach)
+
+Prerequisites
+Java
+Eclipse
+Maven
+TestNg
+Rest Assured Dependencies
+
+Rest Assured Dependencies
+rest-assured
+json-schema-validator
+json-path
+xml-path
+testng
+java-hamcrest
+hamcrest-core
+hamcrest-library
+
+The last 3 dependencies are required for BDD approach. Instead of downloading them seperately, we can download hamcrest-all dependency alone.
+
+Keywords used in BDD
+given - set cookies info, authorization info, parameters, headers info- basically prerequisites
+when - to send get,put,delete requests etc. - basically conditions
+then - validating status code, extract headers, body, cookies etc. - basically response validation
+
+Validations:
+Status code
+status line
+response
+headers
+
+Demo website:
+GET Request
+restapi.demoqa.com/utilities/weather/city/Chennai
+
+imports are very important
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
+rest assured and hamcrest packages are not normal imports, they are static imports
+static packages appear in different colors under maven dependencies section (dark grey)
+
+
+POST Request: Customer API
+http://restapi.demoqa.com/customer
+/register
+
+Body:
+{
+"FirstName" : "Ash111",
+"LastName" : "Samurai",
+"UserName" : "ash123111",
+"Password" : "123456",
+"Email" : "ab111c@123.com"
+}
+
+Validations:
+{
+"SuccessCode" : "OPERATION_SUCCESS",
+"Message" : "Operation completed successfully"
+}
+
+PUT Request
+http://dummy.restapiexample.com/api/v1
+/update/<EMPID>
+
+to get all the records: http://dummy.restapiexample.com/api/v1/employees
+to get a specific record : http://dummy.restapiexample.com/api/v1/employee/<EMP ID>
+
+Body:
+{
+"name": "Chandler Bing",
+"salary": "162711",
+"age": "20"
+}
+
+DELETE Request
+http://dummy.restapiexample.com/api/v1
+/delete/<EMPID>
+
+
+
+
