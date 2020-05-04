@@ -1,0 +1,1067 @@
+QUIZ ANSWERS/EXPLANATIONS:
+
+
+Question 1. Which definition of a software bug makes more sense? A software bug is
+
+
+- a situation when software doesn't work
+
+- a deviation of how software behavior differs from our expectations on how it should behave
+
+- a record in a bug tracking system
+
+
+Explanation:
+
+
+"Software doesn't work" might mean a lot of things. For example, if a user doesn't understand how a certain feature should function, he can call it "not working".
+
+
+A record in a bug tracking system might reflect personal opinion that has nothing to do with how the software should behave.
+
+
+But when we know how the software should behave (expected result) and after interaction with the software we see that an actual result deviates from that behavior, we can reasonably call that situation a software bug.
+
+
+--
+
+
+Question 2. The purpose of software testing is to
+
+
+- make sure that software works
+
+- release bug free software
+
+- find as many bugs as possible
+
+- find and address bugs before bugs are found and addressed by users
+
+
+Explanation:
+
+
+A tester cannot make sure that software works, because he CANNOT check 100% of possible scenarios on how software can be used.
+
+
+For the same reason, we cannot release bug free software.
+
+
+It's better to find one P1 than 10 P4s.
+
+
+But here is what software testers CAN do:
+
+
+Find bugs by using testing techniques.
+
+
+Address bugs by:
+
+- bug reporting and,
+
+- after the bug is marked as fixed,
+
+> verifying that the bug was really fixed
+
+> checking to see if bugs have been introduced or re-introduced as a result of the bug fix.
+
+
+--
+
+
+Question 3. A tester is the only person responsible for the quality of the software.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Software quality is a combined effort of ALL participants of the Software Development Life Cycle.
+
+
+For example, if product manager introduces a bug in the spec, programmers and testers might perceive that bug as a legitimate feature and as a result we will release a buggy software.
+
+
+--
+
+
+Question 4. QA = Testing
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+The purpose of QA is to prevent bugs.
+
+
+The purpose of testing is to find and address bugs that have not been prevented.
+
+
+--
+
+
+Question 5. The purpose of QA is to
+
+
+- find and address bugs
+
+- setup testing infrastructure
+
+- prevent bugs via process improvement
+
+- fix bugs
+
+- verify that bugs are fixed and fixes are verified
+
+
+Explanation:
+
+
+QA is about PROCESS and PREVENTION.
+
+
+When we improve the software development process, we improve bug prevention. We can also say that measures that improve bug prevention improve the software development process.
+
+
+--
+
+
+Question 6. Check one essential attribute of a test case.
+
+
+- Steps
+
+- Expected result
+
+- Actual result
+
+- Setup
+
+
+Explanation:
+
+
+Bug is a deviation of the actual result from expected result. If the expected result is unknown, we cannot tell whether or not the software works properly. Hence, the expected result is an essential attribute of a test case.
+
+
+--
+
+
+Question 7. If а test case execution results in a FAIL, it means we have a bug.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+This is false because, for example, we can have a situation when the spec was changed, but the test case was not.
+
+                                                
+
+For example, when a tester was creating the test case, the link color was supposed to be blue, but then the product manager has changed the spec and now link color is supposed to be red. If the tester didn't modify the test case and the actual result is link color is red, this is NOT a bug, because the spec says that link color should be red.
+
+                                                
+
+This situation might resolve itself this way:
+
+1. Test case execution result is FAIL.
+
+2. Tester files a bug.
+
+3. Developer marks bug as "Not a bug."
+
+4. Tester modifies test case specifying that link color should be red.
+
+
+--
+
+
+Question 8. It's OK if one test case depends on another.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+                                
+
+It's absolutely NOT OK. Dependence of one test case on another is one of the WORST test case writing practices.
+
+                                                
+
+For example, what if Test Case 2
+
+
+- refers to steps of Test Case 1 or
+
+- relies on DB data created by Test Case 1
+
+
+and Test Case 1 is changed?
+
+
+Each test case should be independent from others. It means that if you have a set of test cases, you can execute them in any order.
+
+
+--
+
+
+Question 9. Software bugs can only happen if a developer makes a mistake.
+
+                                
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Developer's mistake is only one of many possible bug causes. For example, a product manager might introduce bug on the spec level.
+
+
+--
+
+
+Question 10. Logical bugs are detected by a compiler/interpreter
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Compiler (Java) and interpreter (Python) detect syntax bugs.
+
+
+--
+
+
+Question 11. Syntax bugs can only be discovered by thorough manual testing.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Syntax bugs are automatically detected by launching a compiler (Java) or interpreter (Python).
+
+
+--
+
+
+Question 12. A program calculates 2 + 2 = 5. We have
+
+
+- UI bug
+
+- Syntax bug
+
+- Logical bug
+
+
+Explanation:
+
+
+UI bugs are about presentation.
+
+
+Syntax bugs are about syntax.
+
+
+Logical bugs are about how application processes information.
+
+
+In the case of an arithmetic error, we see a bug in how information was processed.
+
+
+--
+
+
+Question 13. Logical bugs always have a higher priority than UI bugs.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+If the UI is not displayed properly in a mobile browser and a user cannot login, it's definitely P1.
+
+
+At the same time, some logical bug might have P4 priority and we can decide to never fix it.
+
+
+--
+
+
+Question 14. The spec states:  "If a user spends 100 to 200 dollars, a 5% discount is applied. If a user spends 200 to 300 dollars, a 10% discount is applied." Does this spec have a bug?
+
+
+- True
+
+- False
+
+
+Explanation:
+
+This spec has a bug in a definition of ranges for equivalent classes. It's not clear what discount should be given if a user spends 200 dollars.
+
+
+--
+
+
+Question 15. As a rule, the main focus of testing is
+
+
+- Logical bugs
+
+- UI bugs
+
+- Syntax bugs
+
+ 
+
+Explanation:
+
+
+Syntax bugs are caught by a compiler or interpreter, so this is not a focus of testing.
+
+
+While UI bugs can have P1 priority, most of the testing we do deals with how the application core processes information. And bugs in how software process information are logical bugs.
+
+
+--
+
+
+Question 16. We should not try to automate the execution of each and every test case.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+The main question of test automation is WHAT to automate, not HOW to automate.
+
+
+If we select the wrong test cases to be automated, we'll waste our time and company money -- most likely because of the test automation MAINTENANCE.
+
+
+--
+
+
+Question 17. The success of testing depends on how many test cases are automated.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+If we define the success of testing as
+
+
+1. Happiness of our customers AND
+
+2. Software of high quality
+
+
+then we'll see no correlation between test automation and that success. Some companies don't even have QA Departments, but their customers are happy and the quality of their software is excellent.
+
+
+--
+
+
+Question 18. Test automation cannot replace manual testing.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Whether we’re testing more or less complex software, we cannot implement 100% test automation and hence we'll always depend on manual testing to some extent.
+
+
+--
+
+
+Question 19. System or end-to-end test cases are ideal candidates for test automation.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+System or end-to-end test cases are WORST candidates for test automation, because test automation will be exposed to risks of breaking in case of both component change and change in integrations between those components.
+
+
+The ideal candidate for test automation is a stable component with as much isolation is possible.
+
+
+--
+
+
+Question 20. The main problem of a test automation is
+
+
+- that many testers don't have good programming skills
+
+- maintenance
+
+- absence of good tools
+
+- lack of time
+
+
+Explanation:
+
+
+It doesn't take much technical skills to do basic test automation, for example with recording function. But if you select the wrong candidate for automation and/or implement test automation without thinking about maintenance, it'll bite you every time the software is changed.
+
+
+Frequent modifications to software are INEVITABLE, especially in a startup environment. This means that frequent maintenance of the test automation that tests that software is also INEVITABLE.
+
+
+Thus you can end up with situation when you have to spend 100% of your time on maintenance.
+
+
+--
+
+
+Question 21. Let's assume that we have 100 test cases to test Functionality A.  It's a basic rule of software testing that we have to run all of them each and every release.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+If we test legacy functionalities, it's regression testing and in most cases we don't have enough time to do full regression for all legacy features.
+
+
+The main challenge of regression testing is a contradiction between our limited resources (mostly people and time) and the ever-growing number of test cases.
+
+
+--
+
+
+Question 22. If a developer only changed the software code of functionality A, we can be 100% sure that functionality B still works.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+If the software code for functionality B has some dependency on the software code for functionality A (for example, on certain DB value) and functionality A is changed, we should do regression testing on functionality B.
+
+
+The problem is that modern software is so complex and interconnected that it's often extremely hard to say how a change in one part of software will echo in its other parts.
+
+
+--
+
+
+Question 23. A good tester generates more test cases than bad tester.
+
+
+- False
+
+- True
+
+
+Explanation:
+
+
+The number of test cases has no significance. What matters is the potential to find a bug during test case execution.
+
+
+That potential is the highest under two conditions:
+
+
+1. Tester knows how software should function.
+
+2. Tester knows how to use black box testing techniques.
+
+
+--
+
+
+Question 24. New Feature Testing testing is more important than Regression Testing.
+
+
+- Yes, because new features are more important than existing ones
+
+- No, because regression testing checks if existing functionality has regressions
+
+- They are equally important
+
+
+Explanation:
+
+
+We should test both new and legacy features. What testing has priority (new feature or regression)  is decided for each particular release.
+
+
+--
+
+
+Question 25. Patch releases contain bug fixes.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+We release patches to software to fix existing bugs.
+
+
+--
+
+
+Question 26. Every participant of a software development process is responsible for product quality.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Software quality is a mutual effort, because software quality depends on each participant of the SDLC.
+
+
+Bugs can be introduced at ANY stage of SDLC and best testing in the world will not help to improve software quality if product manager/programmer/DB admin/release engineer, etc., neglect the quality of their work.
+
+
+--
+
+
+Question 27. When you write a test case, it's OK to assume that other testers know the application as good as you do.
+
+
+- False
+
+- True
+
+
+Explanation:
+
+
+Such assumption is the straight path to test cases that can only be executed by its author.
+
+
+A test case that can be executed only by its author should be publicly denounced, burnt, and its ashes thrown into the ocean to make sure that no one will ever try to execute it ever again.
+
+
+--
+
+
+Question 28. Beta releases should contain software with very limited functionality.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+A Beta release is about limited audience, not about limited functionality.
+
+
+--
+
+
+Question 29. Beta testers are professional QA testers.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Beta testers are representatives of our target audience and they can belong to any professional/educational/etc. profile depending on the purpose of our software.
+
+
+--
+
+
+Question 30. Regression testing is required to find bugs in new functionalities.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+During regression testing we look for regressions (newly introduced bugs) in existing (also called legacy) functionalities.
+
+
+--
+
+
+Question 31. Bug #2323 has P1 priority and P2 severity. Bug #2330 has P2 priority and P1 severity.  Which bug should be fixed first?
+
+
+- #2323
+
+- #2330
+
+- It doesn't matter
+
+- This situation should be escalated to dev manager
+
+
+Explanation:
+
+
+Bug priority is a business matter and it points to the urgency with which a bug should be fixed.
+
+
+Bug severity is a technical matter and it points to the magnitude of the bug's impact on the software.
+
+
+Hence, a P1 bug should be fixed before P2 bug.
+
+
+--
+
+
+Question 32. After user is logged in, the link "Log in" is displayed instead of "Log out". This is a
+
+
+- UI bug
+
+- Logical bug
+
+- Syntax bug
+
+
+Explanation:
+
+
+Syntax bugs are caught by compiler or interpreter, so this is not a syntax bug by definition.
+
+
+UI bugs are about presentation, for example, layout, colors, ability to navigate software, number of characters in the textbox, etc. so it's not a UI bug.
+
+
+This is a logical bug, because there is a problem with processing. The expected processing is this: IF user is logged in, THEN generate HTML code with Log out button.
+
+
+The root cause might be a bug in the application core or a JavaScript code, but in any case, this is the problem with how software processes information.
+
+
+--
+
+
+Question 33. Regression testing should be done before new feature testing.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+We perform regression testing AFTER new feature testing, because new features tend to contain much more bugs than legacy features regressions.
+
+
+--
+
+
+Question 34. The two stages of regression after the bug was marked as "Fixed Not Verified" are to
+
+
+- check if bugs were introduced or re-introduced during the fix
+
+- check if fixed software is accepted by beta users
+
+- check if other bugs in the same functionality were fixed as well
+
+- check if a bug was really fixed
+
+                                        
+
+Explanation:
+
+
+Bug regression consists of two parts:
+
+
+        1. Verification that the bug was really fixed. We do that by executing the same test scenario that helped us to discover the bug.
+
+        2. Verification that the bug fix activities didn't break something. In other words, we check if the bug fix has introduced any regressions. We do that verification it by running regression tests.
+
+
+--
+
+
+Question 35. Black box testing requires good coding skills.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Black box testing doesn't require any coding skills. The power of black box testing comes from the fact that tester looks at the software from user's perspective.
+
+
+But actions of black box tester are not limited to user's actions, for example, black box tester can use some automation helpers like Account Creator.
+
+
+--
+
+
+Question 36. Grey box testing is black box testing with some level of backend knowledge.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Grey box testing stands between black box and white box testing.
+
+
+It's similar to black box testing, because tester creates scenarios based on present or potential user actions.
+
+
+It's similar to white box testing, because tester performs backend actions, for example checking data in DB or inside log files.
+
+
+--
+
+
+Question 37. White box testing is more important than black box testing.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Black/grey/white box testing approaches are all useful and required, because they check software from different perspectives, hence helping us find more bugs.
+
+
+--
+
+
+Question 38. Performance testing is similar to usability testing.
+
+
+- True
+
+- False
+
+
+While response time directly affects usability of software, performance testing is different from usability testing, because during performance testing our focus is to find bottleneck in our system, while during usability testing we evaluate overall users' experience.
+
+
+--
+
+
+Question 39. Positive testing can be done with invalid data.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Positive testing by definition happens under normal conditions with error-free actions/data.
+
+
+--
+
+
+Question 40. Component testing is similar to compatibility testing.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+They are completely different things. During component testing we check isolated component of some system. During compatibility testing we check how our software runs on different hardware/OS/software/networks.
+
+
+--
+
+
+Question 41. During negative testing we usually find more bugs than during positive testing.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+There are two main reasons for this:
+
+                                                
+
+a. Errors and failures can take many shapes and forms, so the PM and the programmer might not predict some of them, and thus the code will not be ready to handle certain abnormal situations. Leo Tolstoy put it this way: "Happy families are all alike; every unhappy family is unhappy in its own way" – in other words, abnormalities have a great diversity.
+
+                                                
+
+b. When writing and developing features, it is natural to concentrate on the normal usage and normal functioning of the software because that's how we provide value to our users. In other words, users don't come to YouTube to see error messages; they come to upload/watch videos. And videos can be uploaded/watched only if
+
+                                                
+
+- the user executes an error-free scenario and
+
+- our system is working normally.
+
+
+--
+
+
+Question 42. We usually find more bugs during component testing than during system (end-to-end) testing.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+We find more bugs during system (end-to-end) testing, because not only do we test components themselves, but also their integrations with each other.
+
+
+--
+
+
+Question 43. An equivalent class is a set of inputs that are treated differently by the software under certain conditions.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+An equivalent class is a set of inputs that are treated the same way by the software under certain conditions.
+
+
+In other words, under certain conditions, the software must apply the same logic to each element of the equivalent class.
+
+
+--
+
+
+Question 44. A discount of 10% is given to users who spend from 1 to 99 dollars (inclusively), using PayPal.  1.01, 46.00, 67.95, 89, 98.99 dollars - all these inputs belong to the same equivalent class.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+They belong to the same equivalent class, because they are all treated with the same logic (10% discount) under the certain condition (user pays with PayPal).
+
+
+--
+
+
+Question 45. Select two parts of an equivalent class. 1. Version of OS 2. Range of inputs 3. List of error messages 4. Logic for output.
+
+
+1 and 3
+
+2 and 4
+
+3 and 4
+
+1 and 4
+
+
+Explanation:
+
+
+An equivalent class is a set of inputs that are treated the same way by the software under certain conditions. Hence, we have a connection between range of input and logic of output.
+
+
+--
+
+
+Question 46. Two or more bugs in the bug tracking system can have the same Bug ID.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Each record in a bug tracking system should have unique ID. Period.
+
+
+--
+
+
+Question 47. Bug Severity points to urgency of how fast a bug should be fixed.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Bug severity is a technical matter and it points to the magnitude of the bug's impact on the software.
+
+
+Urgency of a bug fix is reflected in bug Priority.
+
+
+--
+
+
+Question 48. "Cannot reproduce" resolution is a solid reason to close the bug.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+Resolution "Cannot reproduce" simply means that whoever tried to reproduce the bug wasn't able to do so. There can be many reasons for that, but usually it happens due to poorly written bug description.
+
+
+--
+
+
+Question 49. If developer cannot reproduce the bug, it means that bug doesn't exist.
+
+
+- True
+
+- False
+
+
+Explanation:
+
+
+In many cases, bug cannot be reproduced, because tester failed to provide good bug description in a bug tracking system.
+
+
+--
+
+
+Question 50. Look at this bug: http://sharelane.com/bugs/1.html  Who owns it now?
+
+
+- Product manager
+
+- Project manager
+
+- Developer
+
+- QA
+
+- Nobody
+
+
+Explanation:
+
+
+Bug resolution is "Fix in progress". It means that developer is the current bug owner.
