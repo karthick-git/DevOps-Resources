@@ -1,0 +1,33 @@
+Concourse Commands
+
+Login and create a target in your local (target is just alias using which you need to execute concouse commands so it will execute the command on that particular target)
+fly --target login --concourse-url https://ci.<orgurl>.net /n <orgname>
+
+Create pipeline
+fly -t $target sp -c pipeline.yml -p <pipeline-name>
+
+Destroy pipeline
+fly -t $target destroy-pipeline -p <pipeline-name>
+
+Command to generate pipeline.yaml
+./create-pipeline.sh <orgname> <pipeline-name> deployment-manifests
+
+Vault login
+vault login -method=ldap username=xxxxx
+
+Vault write secrets
+vault write secret/ci/<orgname>/$target acct.username=xxx acct.password=******
+
+Generate Git SSH Key for concourse access
+https://help.github.com/enterprise/2.14/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+
+Check file permissions in Git
+git ls-files --stage
+
+Give executable permission to Git files
+git update-index --chmod=+x <shell script path>
+
+Concourse Tutorial - https://concoursetutorial.com/
+Concourse Documentation - https://concourse-ci.org/docs.html
+Concourse Examples - https://concourse-ci.org/examples.html
+Concourse Resources Repository (can be searched here) - https://github.com/concourse
