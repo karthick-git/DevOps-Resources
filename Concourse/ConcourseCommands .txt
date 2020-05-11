@@ -1,0 +1,43 @@
+Concourse commands:
+
+For Creating Pipeline inorder to get Common and Javapipelines yml and script files
+
+fly -t eom login -c <CI URL> /n <target repo> --open-browser
+fly -t eom set-pipeline -c pipeline.yml -p {service-name} ------------- To create pipeline
+fly -t eom destroy-pipeline -p {service-name} ------------------ to delete pipeline
+fly -t eom get-pipeline --pipeline {my-pipeline} ----------to check the yml file
+
+login into fly
+fly -t <target> login -c <CI URL> /n <target repo>  
+
+To execute the pipeline
+fly -t  <target> set-pipeline -c pipeline.yml -p <service name>
+
+To destroy the pipeline
+
+fly -t tutorial destroy-pipeline -p <service name>   --------------> inorder to destroy the created pipeline
+fly -t <target> destroy-pipeline -p <pipeline name>
+                                                
+												
+	
+Inorder to intercept build
+fly -t  <target> intercept -j <service name>/unit
+
+
+
+Vault login commands:
+
+commands:
+vault login -method=ldap username=<username>
+ vault write secret/ci/<target space>/<target> acct.username=xxxxxxx acct.password=xxxxxxx
+vault read secret/ci/<target space>/<target>
+
+####### Watch the current build log on command prompt
+>fly -t eom watch /<local path of service>/build
+
+To just add config changes to a pipeline without creating it freshly:
+fly -t <target space> set-pipeline -p <service name> -c pipeline.yml
+
+To unpause the pipeline
+fly -t concourse-session unpause-pipeline --pipeline <service name>
+
