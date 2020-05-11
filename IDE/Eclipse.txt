@@ -1,12 +1,12 @@
 Basic:
-Ctrl + M - Max and Min
+Ctrl + M - Max and Min the current window
 Ctrl + Space - Intellisense (Autosuggestion)
 Ctrl + 1 - Autocorrects and suggests more options (used mostly during compilation errors)
 Alt + Up Arrow / Down arrow - to move a line up/down
 
 Debug mode:
 F5 - Go into the function (step into)
-F6 - does the fucntion call and goes to the next fucntion(step over)
+F6 - does the function call and goes to the next function(step over)
 F8 - Go ahead and execute the rest of the program (used when step into sysout for eg.)
 Inspect - to see what is the current value while debugging
 Watch - add an expression like num * 3 or num * sum - to see what value it gives
@@ -15,7 +15,7 @@ To activate conditional break point, double click on the break point in the brea
 enter the condition in the text box below (use when we have to debug from the middle elements of an array)
 
 Shortcuts:
-Ctrl+Shift+L - to see th list of shortcuts in eclipse
+Ctrl+Shift+L - to see the list of shortcuts in eclipse
 Ctrl+Shift+R  - to search for any resource (for searching java classes and directly go there - just user written)
 Ctrl+Shift+T - to search for any resource (for searching java classes and directly go there - user written + in built classes)
 For the above two searches, just type the capital letters in the class, it will search quickly (For Eg. AL for ArrayList)
