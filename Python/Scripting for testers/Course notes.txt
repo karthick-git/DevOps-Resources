@@ -1,0 +1,72 @@
+Tools used
+Cmder
+VSCode
+
+REST API in python
+python -m pip install requests
+jsonplaceholder.typicode.com - to create some Fake APIs
+in cmder, type python and enter
+import requests
+go to the photos API in jsonplaceholder and look at the json to understand
+
+to perform a GET request in cmder
+url = 'http://jsonplaceholder.typicode.com/photos'
+response=requests.get(url)
+response.json()
+
+to perform a POST request in cmder
+jsonPayload = {'albumId':1,'title':'test','url':'nothing.com','thumbnailUrl':'nothing.com'}
+response=requests.post(url,json=jsonPayload)
+response.json()
+
+to perform a PUT request in cmder
+url = 'http://jsonplaceholder.typicode.com/photos/100'
+response=requests.put(url,json=jsonPayload)
+response.json()
+
+For websites with authentication
+url = 'https://api.github.com/user'
+response=requests.get(url,auth=('username','password'))
+response.json()
+
+Instead of entering the password in plain text, we can use authorization token
+GitHub-->Settings-->Developer Settings-->Perssonal access tokens-->Generate new token
+Give a name and select scope as user and generate token
+response=requests.get(url,headers={'Authorization':'Bearer <token generated>'})
+response.json()
+
+To play around with the data in the response
+url = 'http://jsonplaceholder.typicode.com/users'
+response=requests.get(url)
+my_json=response.json()
+//If the response is a dictionary
+for key in my_json.keys():
+	print(key)
+//If the response is a list
+my_json=response.json()
+for i in range(len(my_json)):
+    print(my_json[i])
+    i+=1
+//If the response is a list of ditionaries
+my_json=response.json()
+for i in range(len(my_json)):
+    a=my_json[i]
+    for key in a.keys():
+        print(key)
+
+//For printing the required values
+for i in range(len(my_json)):
+    my_json[i]['key']
+
+Refer to ReadingData.py for more info
+For creating charts
+google--> google charts column charts
+copy the first 4 lines of code from "Labelling columns" section
+To insert the data into the chart
+Data tables and Data views--> arrayToDataTable()
+copy the first example and paste it in the header after creating a function
+remove the example data and replace it with $labels and $ data
+Go to google charts page --> Draw the chart section and copy the code starting with var chart
+remove the options parameter
+change the chart from pie to column
+Include div in the body

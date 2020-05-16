@@ -1,0 +1,84 @@
+1589525856642	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\USER\\AppData\\Local\\Temp\\rust_mozprofileeIT5eB"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1589525870496	Marionette	INFO	Listening on port 52689
+1589525870846	Marionette	WARN	TLS certificate errors will be ignored for this session
+1589525928665	Marionette	INFO	Stopped listening on port 52689
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1589525937527	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\USER\\AppData\\Local\\Temp\\rust_mozprofilejFvKyN"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1589525946734	Marionette	INFO	Listening on port 52860
+1589525946849	Marionette	WARN	TLS certificate errors will be ignored for this session
+1589526349772	Marionette	INFO	Stopped listening on port 52860
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1589526741632	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\USER\\AppData\\Local\\Temp\\rust_mozprofile9RMXs3"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1589526760882	Marionette	INFO	Listening on port 56015
+1589526760898	Marionette	WARN	TLS certificate errors will be ignored for this session
+1589526773730	Marionette	WARN	TimedPromise timed out after 0 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:245:13
+TimedPromise@chrome://marionette/content/sync.js:230:10
+Sleep@chrome://marionette/content/sync.js:283:10
+dispatchPause@chrome://marionette/content/action.js:1482:10
+toEvents/<@chrome://marionette/content/action.js:1156:16
+action.dispatchTickActions@chrome://marionette/content/action.js:1060:35
+action.dispatch/chainEvents<@chrome://marionette/content/action.js:1028:20
+action.dispatch@chrome://marionette/content/action.js:1034:5
+performActions@chrome://marionette/content/listener.js:853:16
+dispatch/</req<@chrome://marionette/content/listener.js:527:14
+dispatch/<@chrome://marionette/content/listener.js:520:15
+MessageListener.receiveMessage*startListeners@chrome://marionette/content/listener.js:603:21
+registerSelf@chrome://marionette/content/listener.js:501:5
+@chrome://marionette/content/listener.js:1855:1
+A content process crashed and MOZ_CRASHREPORTER_SHUTDOWN is set, shutting down
+1589526830858	Marionette	INFO	Stopped listening on port 56015
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+vaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1589526827367	Marionette	INFO	Listening on port 56282
+1589526827538	Marionette	WARN	TLS certificate errors will be ignored for this session
+1589527048209	Marionette	INFO	Stopped listening on port 56282
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1589527204514	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\USER\\AppData\\Local\\Temp\\rust_mozprofileSJWzPs"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1589527217482	Marionette	INFO	Listening on port 56899
+1589527217707	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1589527347647	Marionette	INFO	Stopped listening on port 56899
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1589527410930	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Developer Edition\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\USER\\AppData\\Local\\Temp\\rust_mozprofileIQhNoo"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1589527419527	Marionette	INFO	Listening on port 57223
+1589527419949	Marionette	WARN	TLS certificate errors will be ignored for this session
+1589527436957	Marionette	WARN	TimedPromise timed out after 0 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:245:13
+TimedPromise@chrome://marionette/content/sync.js:230:10
+Sleep@chrome://marionette/content/sync.js:283:10
+dispatchPause@chrome://marionette/content/action.js:1482:10
+toEvents/<@chrome://marionette/content/action.js:1156:16
+action.dispatchTickActions@chrome://marionette/content/action.js:1060:35
+action.dispatch/chainEvents<@chrome://marionette/content/action.js:1028:20
+action.dispatch@chrome://marionette/content/action.js:1034:5
+performActions@chrome://marionette/content/listener.js:853:16
+dispatch/</req<@chrome://marionette/content/listener.js:527:14
+dispatch/<@chrome://marionette/content/listener.js:520:15
+MessageListener.receiveMessage*startListeners@chrome://marionette/content/listener.js:603:21
+registerSelf@chrome://marionette/content/listener.js:501:5
+@chrome://marionette/content/listener.js:1855:1
+console.log: *** PurgeTrackerService:: "Purging trackers enabled, beginning batch."
+console.log: *** PurgeTrackerService:: "All cookie purging finished, resetting list until tomorrow."
+JavaScript error: resource://gre/modules/psm/RemoteSecuritySettings.jsm, line 817: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIXPCComponents_Utils.reportError]
+1589536881683	Marionette	INFO	Stopped listening on port 57223
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
