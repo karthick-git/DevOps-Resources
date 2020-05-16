@@ -1,0 +1,205 @@
+Important points:
+An SQL statement is terminated with a ;
+not always,but it's a good idea to use it.
+White spaces are ignored
+It's a good practice to capitalize SQL queries
+Single quotes are used for literal strings
+double quotes are used for identifiers with a space in it, while setting aliases
+If te aliases don't contain a space,then double quotes are not required
+AS keyword is optional, but it's a good practice to use it
+FROM needs to be first in the query, followed by where, order by. Limit and offset at the last
+There order of column names in the query will determine the order of columns in the reult table
+Good practice to have values in the insert query in a new line
+Deleted rows can't be recovered
+Before doing DELETE FROM, do SELECT FROM and see the results, if you get the expected result, change SELECT to DELETE
+NULL isn't a value, it's a state of lack/absence of value, so it can't be used in where filter like where value = NULL.
+The above statement will show no results, instead try "where value is null";
+you can't have 2 tables with the same name in a DB
+In standard SQL, Single quotes is used for string literal, in MySQL double quotes is used
+
+SQL Fundamentals
+FROM clause is used to point a particular table
+WHERE clause is used to select particular rows
+SELECT statement is used to return values from DB
+INSERT statement is used to add a row to a table
+UPDATE statement is used to change data in a row
+DELETE statement is used to remove a row from a table
+AS is used to set alias to a column name
+ORDER BY is used to retieve table data with a particular column name in alphabetical order
+AND is used to combine two filters
+
+DB organization
+DB has tables --> tables have rows and columns
+Row is like an individual record
+column is like a field
+Each row in a table has a unique key, which helps in identifying the row
+Sometimes the unique key is hidden, but a table must have one
+When a column is used as a unique key, it;s called the primary key
+Tables are related by keys
+If a column refers to keys of another table, it's called a foreign key
+
+SQL Queries:
+To retrieve the entire table data: SELECT * FROM <TABLENAME>
+To retieve table data with a particular column name in alphabetical/ascending order: SELECT * FROM countries ORDER BY region_id;
+To retieve particular columns from a table: SELECT country_name,region_id FROM countries;
+To set aliases for a particular column: SELECT country_name,region_id AS "RID" FROM countries;
+To filter certail rows: SELECT * FROM countries WHERE region_id=2;
+To limit the reults to certain records: SELECT * FROM countries WHERE region_id=2 LIMIT 3;
+To retrieve certain number of records from certain number of rows: SELECT * FROM countries WHERE region_id=2 LIMIT 3 OFFSET 2;
+To retrieve the number of records in a table: SELECT COUNT(* )FROM countries;
+To retrieve the number of records in a particular column: SELECT COUNT(region_id)FROM countries;
+For the above command, the results may vary according to the number of cells that have no data
+To insert a new row in the table: INSERT INTO countries(country_id,country_name,region_id) VALUES('IC','Iceland',1);
+To execute a particular query, select that and run or place the cursor at the line of the query and run
+To update data of a columns in a particular row: UPDATE countries SET country_id='IR',region_id=2 WHERE country_name='Ireland';
+Another example: UPDATE countries SET country_name='Greenland',region_id=3,country_id='GL' WHERE country_name='Mexico';
+To delete a particular row: DELETE FROM countries WHERE country_id='IR';
+To create a new table: CREATE TABLE toss (a INTEGER, b TEXT);
+To insert values into that new table: INSERT INTO toss VALUES(2,'TAIL');
+To delete a table from DB: DROP TABLE toss;
+To delete a table from DB and If unsure whether the table exists anymore: DROP TABLE IF EXISTS toss;
+The above statement doesn't return any error either way
+To insert a row full of null values: INSERT INTO toss DEFAULT VALUES;
+To insert data from a different table into the current table: INSERT INTO toss(a,b) SELECT country_id,country_name FROM countries;
+To create a table with a NOT NULL constraint: CREATE TABLE toss1 (a INTEGER NOT NULL, b TEXT NOT NULL, c TEXT);
+To add default values to columns for which we didn't provide data during insert:
+CREATE TABLE toss(a TEXT,B TEXT, C TEXT DEFAULT 'abc');
+INSERT INTO toss(a,b) VALUES ('a','b');
+The select on toss table will give the result --> a,b,abc now
+Note: If needed we can overwrite the default value with our value
+To add a unique contraint to a column: CREATE TABLE toss(a TEXT UNIQUE,B TEXT);
+Note: Null state is exempt from unique contraint (in RDBMS)
+To use UNIQUE and NOT NULL together:  CREATE TABLE toss(a TEXT UNIQUE NOT NULL,B TEXT);
+To modify an already created table: ALTER TABLE toss ADD d TEXT;
+Note: contraints can be used while entering data in the new colummns, if needed
+TO create a primary key like ID, which is autogenerated (In RDBMS): CREATE TABLE toss(a INTEGER PRIMARY KEY,B TEXT, C TEXT DEFAULT 'abc');
+The above statement will enforce Not null and unique contraint for column 'a' automatically
+A table can have only one ID column
+To add more than one filters: use OR,AND,LIKE,IN
+To filter with value containing wildcard: SELECT country_id,country_name FROM countries WHERE country_id LIKE '%A%' ORDER BY country_id;
+To match second character: SELECT country_id,country_name FROM countries WHERE country_id LIKE '_A%' ORDER BY country_id;
+To match results from a list: SELECT country_id,country_name FROM countries WHERE country_id IN ('CA','GL','NL');
+To know the different values present in a column without duplication: SELECT DISTINCT region_id from countries;
+Distinct can also be used like Distinct a,b. It will give unique a values and corresponding b values
+Order by has different types: 
+ORDER BY name - ASCII order
+ORDER BY name ASC - ascending order (same as ASCII)
+ORDER BY name DESC - descending order
+ORDER BY can take more than 1 column name as parameter
+
+Below code checks if a or b is 0, if 0 then it prints false, otherwise true
+SELECT
+    CASE WHEN a THEN 'true' ELSE 'false' END as boolA,
+    CASE WHEN b THEN 'true' ELSE 'false' END as boolB
+    FROM boolset;
+    
+Below code checks if a or b is equal to the value mentioned after when, if equal then it prints false, otherwise true
+SELECT
+    CASE a WHEN 11 THEN 'true' ELSE 'false' END as boolA,
+    CASE b WHEN 14 THEN 'true' ELSE 'false' END as boolB
+    FROM boolset;
+
+Inner Join:
+Like intersection in a set
+SELECT departments.location_id AS LEFT,locations.location_id AS RIGHT
+    FROM departments JOIN locations ON departments.location_id=locations.location_id
+
+Left Outer join/ simply outer join:
+Gives all of the left table plus the intersection part
+SELECT departments.location_id AS LEFT,locations.location_id AS RIGHT
+    FROM departments LEFT JOIN locations ON departments.location_id=locations.location_id;
+
+Roght Outer join:
+Not explicitly supported by most of the DBMS
+Gives all of the right table plus the intersection part
+Can be achieved by interchanging the left and right tables
+SELECT locations.location_id AS LEFT,departments.location_id AS RIGHT
+    FROM locations LEFT JOIN departments ON locations.location_id=departments.location_id;
+
+When different tables have same column names, we have to use aliases.
+A junction table is one where many to many relationship is implemented. 
+It will contain ID columns of different tables. Eg: ID, Customer_id, item_id
+
+Near the select statement we mention the aliases of columns having same names,
+and near from and join keywords, we mention the aliases of the tables
+So the above query would look like
+SELECT d.location_id AS LEFT,l.location_id AS RIGHT
+    FROM departments as d LEFT JOIN locations as l ON d.location_id=l.location_id;
+   
+To use a string which already has a ' in it, eg: here's, then use two single quotes like 'here''s'
+To concatenate in standard SQL, postgreSQL etc. use ||
+E.g: 'this' || '&' || 'that'
+In MySQL, it uses a function called concat
+eg: SELECT CONCAT ('This','&','That');
+MSSQL uses + eg: 'This'+'&'+'That'
+
+Standard String functions:
+SUBSTR(string,start,length);
+LENGTH(string);
+TRIM(string);
+UPPER(string);
+LOWER(string);
+
+To display the countries by desc order of their length: SELECT country_name, length(country_name) as len FROM countries ORDER BY len DESC;
+To substring a string: SELECT substr('this string',6); Result: string--> count starts from 1
+To substring a string upto certain chars: SELECT substr('this string',6,3); Result: str--> upto 3 chars
+Usage: Used in seperating day,month,year of a date
+SELECT start_date,
+    substr(start_date,1,4),
+    substr(start_date,6,2),
+    substr(start_date,9,2)
+    FROM job_history ORDER BY start_date DESC
+;
+
+
+To trim the unwanted spaces:SELECT trim('      string   ');
+Trim supports LTRIM,RTRIM,TRIM a char (eg: SELECT TRIM('&&&STRING&&&','&'))
+Usage: In trimming unwanted spaces in user's inputs
+
+To covert lower into uppercase and viz.,
+SELECT 'string'='STRING'; will return 0 as they are not equal
+SELECT upper('string')='STRING'; will return 1
+
+Numeric types in SQLite:
+INTEGER and REAL
+INTEGER type is provided in 3 precisions:INTEGER,DECIMAl,MONEY
+REAL type is provided in 2 precisions:REAL,FLOAT
+(.1+.2)*10!=1.0+2.0 --> Very important. When compared, the result will be false
+Because, real nummers sacrifice accuracy for scale
+
+To know the type of result: 
+SELECT typeof(1+1); - INTEGER
+SELECT typeof(1+1.0); - REAL
+SELECT typeof('ash'); - TEXT
+SELECT typeof('My name is'+'ash'); - INTEGER
+The above statement results in INTEGER, because as soon as it sees the + sign, it will try to convert the values to INTEGER
+It fails and results in 0 and then just concatenates
+
+Division:
+Append SELECT in front of all the below statements
+1/2 = 0
+1.0/2= 0.5
+CAST(1 AS REAL)/2=0.5
+17/5=3
+17/5,17%5= 3 2
+
+Round:
+Rounds off a value to certain decimal points
+ROUND(2.55555)=3
+ROUND(2.55555,3)=2.556
+ROUND(2.55555,0)=3
+
+Date:
+Standard SQL format for date: 2019-05-17 15:23:56
+Dates and times are generally stored as UTC
+SELECT datetime('now'); - displays GMT date and time (-5:30)
+SELECT date('now');
+SELECT time('now');
+SELECT datetime('now','+1 day');
+SELECT datetime('now','+5 days');
+SELECT datetime('now','-1 month');
+SELECT datetime('now','-1 year');
+SELECT datetime('now','+3 hours','+24 minutes','-1 day','+3 years');
+
+Aggregate data is receiving data from more than 1 row at a time
+
