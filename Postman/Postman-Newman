@@ -1,0 +1,96 @@
+Install postman
+Install node
+npm comes preinstalled with node
+node --version
+npm --version
+npm install -g newman
+install jenkins
+install nodejs plugin for jenkins
+install java SDK 8+
+Create a collection in postman and 2 folders, one for positive test cases and one for negative
+get the sample contact list API from postman documenter
+Add those requests in postman
+
+Common Negative scenarios:
+Record not found
+request is sent with missing required info
+value has too many chars
+value has invalid chars
+value isn't in the correct format (eg: email has .com missing)
+
+providing invalid ID in a GET,POST,DELETE will result in 404 not found
+if all the values required are not provided for a POST/PUT request, then 400 Bad request will be thrown
+value has too many chars - 400 Bad request
+value has invalid chars - 400 Bad request
+value isn't in the correct format - 400 Bad request
+
+Environments can be created by clicking on Setting icon on right top
+Initial value = value saved in env. file
+current value = temp value used for testing
+Use 2 curly braces for varialble names
+
+To save a value from a response in a variable and use it in subsequent steps
+Go to Tests section of that particular request
+var jsonData = pm.response.json();
+Click on set an env. variable from Snippets (or)
+pm.environment.set("variable name",jsonData.key for which we are trying to retrieve the value);
+
+Assertions to be added
+Status code -  200
+Response Body - Eg: Firstname, lastname, email etc.
+Header values - Eg: Content type (mainly used for security and performance checks)
+Security assertion:
+pm.test("Content-Type is application/json",function(){
+	pm.response.to.have.header("Content-Type","application/json; charset=utf-8");
+});
+x-xss header also should be asserted, it protects against cross site attacks
+Performance assertion:
+Response time assertion, to verify if the response takes reasonable amount of time to come back
+JSON assertions
+
+JSON Structure:
+Json composes of key value pairs.
+A group of key value pairs is called an object
+A group of objects is called an array
+
+Newman commands
+export the postman collections as json
+export the environment as well
+navigate to the folder where the above files are present
+newman run <collection file name> -e <env file name>
+newman run -h for help
+
+Jenkins setup
+make sure nodejs plugin is installed
+manage jenkins--> global props -->check gthe env. vars--> name=newman and value=path to newman in local (will be present inside node modules)
+manage jenkins--> global tool config-->NodeJS installations
+Name = NodeJS
+Install automatically - check
+Global npm packages to install = newman
+refresh hours = 72
+
+Setting up a project in jenkins
+Dashboard --> New Item -> Provide a name--> Freestyle project
+Build Environment--> check Provide node and npm folder
+Build --> Execute shell -> in command type --> newman run <collection file name> -e <env file name>
+Build now-->console output--> it will fail
+Note the Building in workspace <path>
+Navigate to above path in local and copy those collection and env.json to this path
+Build now, it will pass
+
+Creating a nightly job
+Configure-->Build triggers-->Build periodically-->0 5 * * *
+
+
+Tips:
+Try adding common assertions like response time assertions to collections instead of individual tests
+Learn to use the postman console efficiently
+Diff between body assertion and JSON assertion is that, in body assertion we are looking for a particular value somewhere in the response body, but in the JSON assertion, we are asserting a value for a particular key
+Practice writing assertions to Nested JSONs
+Practice on public APIs such as 
+https://restcountries.eu
+https://petstore.swagger.io
+Follow the weekly blog thinkingtester.com
+
+
+
