@@ -1,4 +1,4 @@
-1. Productivity
+#1. Productivity
 Ctrl+N  To quickly open any class.
 Ctrl+Shift+N    To quickly open any file.
 Ctrl+Shift+F12  Toggle tools (maximize/minimize code window).
@@ -6,7 +6,7 @@ Ctrl+Space  Code completion.
 Alt+F7  To find all places where a particular class, method or variable is used in the whole project by positioning the caret at the symbol's name or at its usage in code.
 Crtl+P  To quickly see the documentation for the class or method used at the editor's caret.
 
-2. Editing
+#2. Editing
 Ctrl+Space  Basic code completion (the name of any class, method or variable)
 Ctrl+Shift+Space    Smart code completion (filters the list of methods and variables by expected type)
 Ctrl+Shift+Enter    Complete statement
@@ -59,9 +59,9 @@ Ctrl+Alt+V  Extract Variable
 Ctrl+Alt+F  Extract Field
 Ctrl+Alt+C  Extract Constant
 Ctrl+Alt+P  Extract Parameter
-Ctrl+Alt+Insert Create a new class
+Ctrl+Alt+Insert Create a new super-class
 
-3. Search/Replace
+#3. Search/Replace
 Double Shift    Search everywhere
 Ctrl+F  Find
 F3/Shift+F3 Find next / Find previous
@@ -69,7 +69,7 @@ Ctrl+R  Replace
 Ctrl+Shift+F    Find in path
 Ctrl+Shift+R    Replace in path
 
-4. Compile and Run
+#4. Compile and Run
 Ctrl+F9 Make project (compile modifed and dependent)
 Ctrl+Shift+F9   Compile selected file, package or module
 Alt+Shift+F10   Select configuration and run
@@ -78,7 +78,7 @@ Shift+F10   Run
 Shift+F9    Debug
 Ctrl+Shift+F10  Run context configuration from editor
 
-5. Debugging
+#5. Debugging
 Ctrl+K  Commit project to VCS
 Ctrl+T  Update project from VCS
 Alt+Shift+C View recent changes
@@ -93,7 +93,7 @@ F9  Resume program
 Ctrl+F8 Toggle breakpoint
 Ctrl+Shift+F8   View breakpoints
 
-6. Live Templates
+#6. Live Templates
 Ctrl+Alt+J  Surround with Live Template
 Ctrl+J  Insert Live Template
 Ctrl+J - iter   Iteration according to Java SDK 1.5 style
@@ -104,7 +104,7 @@ Ctrl+J - itli   Iterate List / Iterate elements of java.util.List
 Ctrl+J - psf    Public static final
 Ctrl+J - thr    throw new
 
-7. Navigation
+#7. Navigation
 Ctrl+N  Go to class
 Ctrl+Shift+N    Go to file
 Ctrl+Alt+Shift+N    Go to symbol
@@ -137,7 +137,7 @@ Ctrl+F11    Toggle bookmark with mnemonic
 Ctrl+0...9  Go to numbered bookmark
 Shift+F11   Show bookmarks
 
-8. General
+#8. General
 Alt+0...9   Open corresponding tool window
 Ctrl+S  Save all
 Ctrl+Alt+Y  Synchronize
@@ -151,7 +151,7 @@ Ctrl+Shift+A    Find Action
 Ctrl+Tab    Switch between tabs and tool window
 Ctrl+Shift+Alt+Insert   Create new scratch file
 
-9. Multiple Selection
+#9. Multiple Selection
 Alt+Shift+Mouse Click   Add/remove a selection
 Alt+J   Select the next occurrence
 Shift+Alt+J Unselect the next occurrence
