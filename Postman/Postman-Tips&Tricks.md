@@ -76,3 +76,6 @@ In tests, use eval function to run the tests, like below
 eval(pm.environment.get("commonTests"))();
 
 Just use the above line in all the following scripts. 
+
+//Generating a random value for a field during runtime
+We can use the prerequisite scripts or {{$randonInt}} in place of the value for integer values

@@ -1,13 +1,9 @@
 API Testing Checklist:
 
 1. Verify correct HTTP status code. For example, creating a resource should return 201 CREATED and unpermitted requests should return 403 FORBIDDEN, etc.
-
 2. Verify response payload. Check valid JSON body and correct field names, types, and values — including in error responses.
-
 3. Verify response headers. HTTP server headers have implications on both security and performance.
-
 4. Verify correct application state. This is optional and applies mainly to manual testing, or when a UI or another interface can be easily inspected.  
-
 5. Verify basic performance sanity. If an operation was completed successfully but took an unreasonable amount of time, the test fails.
 
 Basic positive tests (happy paths)
@@ -32,14 +28,10 @@ header is not sent to user).
 Negative testing – valid input
 
 Execute API calls with valid input that attempts illegal operations. i.e.:
-
 – Attempting to create a resource with a name that already exists (e.g., user configuration with the same name)
-
 – Attempting to delete a resource that doesn’t
 exist (e.g., user configuration with no such ID)
-
 – Attempting to update a resource with illegal valid data (e.g., rename a configuration to an existing name)
-
 – Attempting illegal operation (e.g., delete a user configuration without permission.)
 
 Negative testing – invalid input
@@ -58,29 +50,19 @@ Execute API calls with invalid input, e.g.:
 Destructive testing
 Intentionally attempt to fail the API to check its robustness:
 Malformed content in request
-
 Wrong content-type in payload
-
 Content with wrong structure
-
 Overflow parameter values. E.g.:
 – Attempt to create a user configuration with a title longer than 200 characters
-
-– Attempt to GET a user with invalid UUID
+– Attempt to GET a user with invalid UUID 
 which is 1000 characters long
-
 – Overflow payload – huge JSON in request body
 
 Boundary value testing 
-
 Empty payloads
-
 Empty sub-objects in payload
-
 Illegal characters in parameters or payload 
-
 Using incorrect HTTP headers (e.g. Content-Type)
-
 Small concurrency tests – concurrent API calls that write to the same resources (DELETE + PATCH, etc.)
 
 Other exploratory testing
