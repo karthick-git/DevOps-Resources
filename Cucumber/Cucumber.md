@@ -98,3 +98,32 @@ For example, when we run our tests in a Continuous Integration (CI) environment,
 Any text in a Cucumber Expression that is surrounded by parentheses `()` is considered optional.
 Words in a Cucumber Expression that are separated by a slash `/` are considered alternates. There must be no whitespace between the word and the slash.
 The above step matches both metre and metres as well as located and standing
+
+Points to remember:
+Cucumber Options:
+dryRun = true will check if all the steps in feature file have corresponding steps defined. default value is false. If it is true it won't run test cases, it will just check if the corresponding steps are present. Even If step definitions are missing, it won't throw error. just the step mapping won't be displayed in the console. If it is false, it will run the test cases.
+
+monochrome = true will display the console output in readable format by removing the unnecessary characters. Best to have it as true always. even if it false it will still run the test cases properly.
+
+format = pretty, html:test-output, json:json_output/cucumber.json, junit:junit_output/cucumber.xml etc. pretty for displaying the console output neatly and for generating html outputs use the sencond option and for json output file use the third option, for xml output use the fourth option
+
+features = feature file/folder path
+glue = path of the package that consists the step definitions
+
+strict = true will fail the execution if there are any pending steps. this is useful if dryrun is false.
+
+Example keyword is applicable for the entire test case. For each row in examples, all the steps of the scenaro outline will be run. Any step can be parameterized and the value can be given directly in the example.
+
+Datatable with list object:
+Datatable is applicable for a particular line below which the pipes are present.In case of using data table, no need of parameterizing the fields with angular brackets.The step definition of the particular step should contain the Datatable parameter.The datatable value should be first stored in a List<List<String>> data = variable.raw(); Headers are not given for this approach.
+The values can be set like data.get(0).get(0), data.get(0).get(1) etc. This particular method is not preferred. Examples is preferred.
+
+Datatable with map object:
+Maps can also be used instead of Datatables. Headers can be used in this case. The step definition of the particular step should contain the Datatable parameter again.
+for(Map<String,String> data: variable.asMaps(String.class,String.class)){}
+The values can be set like data.get(key)
+
+Tags can be provided for features also. In tags , is like OR operator.Eg: tag1,tag2 and AND operator can be mentioned like tag1 and tag2. NOT is like ~tag. also called ignoring. Can be combined with AND or OR
+E.g - OR - "tag1,tag2"
+      AND - "tag1","tag2" or "tag1 and tag2"
+      NOT - "~tag1"
