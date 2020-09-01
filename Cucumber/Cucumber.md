@@ -127,3 +127,12 @@ Tags can be provided for features also. In tags , is like OR operator.Eg: tag1,t
 E.g - OR - "tag1,tag2"
       AND - "tag1","tag2" or "tag1 and tag2"
       NOT - "~tag1"
+
+Hooks - Similar to Before and After method in TestNG. Before contains the setup method and after contains the teardown method. Make sure to import the cucumber before and after instead of Junit annotations.
+Before and After will be executed after each and every scenario. -> Before() and After(). These are also called global hooks.
+There are special kind of hooks called tagged hooks. --> Before("tag1") and After("tag1"). This hook will be executed only for those scenarios with the tag "tag1". They are similar to BeforeMethod and AfterMethods. These are called local hooks. This is used incase we need to add special precondition for a particular scenario.
+Global will be executed before Local normally.We can have more than one global hook or local hook. We can specify the order in which the hooks will be executed by specifying the order like @Before(order=0) etc.
+
+Cucumber with TestNG:
+To convert a Junit project to TestNG, just add the TestNG depenedencies in pom.xml. Add a TestRunner class with the available template on the internet and just update the paths. Add a TestNG.xml file and provide the TestRunner class inside it.
+Best to execute it as Maven from cmd instead of Running the TestNG xml file.
