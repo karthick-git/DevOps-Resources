@@ -1,0 +1,37 @@
+{
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "java.semanticHighlighting.enabled": true,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "git.autofetch": true,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "all",
+    "workbench.colorTheme": "Material Theme Palenight",
+    "workbench.iconTheme": "vscode-great-icons",
+    "workbench.colorCustomizations": {},
+    "python.languageServer": "Microsoft",
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.saveAllFilesBeforeRun": true,
+    "java.configuration.runtimes": [
+      
+
+        {
+            "name": "JavaSE-1.8",
+            "path": "C:/Program Files/Java/jdk1.8.0_121"
+          },
+          {
+            "name": "JavaSE-11",
+            "path": "C:/Program Files/Java/jdk-11.0.7"
+          },
+          {
+            "name": "JavaSE-14",
+            "path": "C:/Program Files/Java/java-14-openjdk-14.0.2.12"
+          }
+    ]
+}

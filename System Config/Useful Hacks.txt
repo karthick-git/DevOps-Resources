@@ -1,0 +1,5 @@
+to open the body tab by default for any request in postman 
+View > Developer > Show DevTools (Current View) / CTRL + SHIFT + i for window user
+Click on "Console" Tab
+paste following code
+setInterval(function() {document.querySelectorAll('.collection-virtualized-list-item__request').forEach(function(e){e.onclick= function() {setTimeout(function(){document.querySelector('.tab--body').click();}, 1500);};})}, 500);

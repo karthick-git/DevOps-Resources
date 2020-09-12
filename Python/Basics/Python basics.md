@@ -259,4 +259,69 @@ Open cmd--> <folder_name>\Scripts\Activate.ps1
 make sure (venv) is present in the start of the line in terminal and ('venv':venv) is present in the bottom of vscode where python version is displayed. If not click on python version and select venv manually
 
 Request library provided by python is very useful for sending API requests.
-    
+To create JSON from Dictionary, use json.dumps(<dict_name>)
+import json
+person_dict={'first':'karthick','last':'ash'}
+person_json=json.dumps(person_dict)
+print(person_json)
+
+To create a json with sub keys and sub values
+staff_dict={}
+staff_dict['program_manager']=person_dict
+staff_json=json.dumps(staff_dict)
+print(staff_json)
+
+To create a json with lists in it
+language_list=['Eng','Tam','Kan']
+person_dict['languages']=language_list
+person_json=json.dumps(person_dict)
+print(person_json)
+
+###Reading env variables
+import os
+os_version = os.getenv('OS')
+print(os_version)
+
+use .env file to store env variables in a text file
+install python-dotenv using pip
+create a file named .env in the outermost folder
+store a sample value like DB and give a value to it
+to read the file from the .env file
+import os
+from dotenv import load_dotenv
+load_dotenv()
+database = os.getenv('DB')
+print(database)
+
+#Decorators
+Decorators in python are similar to controllers in spring
+e.g - @route('/api/products')
+Creating a decorator
+def logger(func):
+    def wrapper():
+        print('Logging execution')
+        func()
+        print('Done Logging')
+    return wrapper
+
+@logger
+def sample():
+    print('inside sample function')
+
+we will be creating decorators only if we are creating frameworks, whatever we need will be already created by someone somewhere, we just need to search
+
+In28Minutes notes:
+Order of operation in python: ** * / % > + -
+abs(number) -> it's like |X| -> always returns the positive of the number passed
+pow(a,x)--> will return a^x
+max(a,b,c)--> will return max of the numbers passed
+min(a,b,c)--> will return min of the numbers passed
+how to use format function:
+print("{0}*{1}={2}".format(5,8,5*10))
+even if we pass extra values in format method's parameter it will not throw error, it will be jut ignored.
+A variables first character should be an alphabet or an __
+We can provide step in for loop as the 3rd argument
+E.g: for i in range(1,11,2):--> where 2 is the step increment and the value of i will be incremented by 2 everytime
+Constants are also called literals
+i is a variable
+When you are defining a method you define it with what is called a parameter, when you are invoking a method you pass the arguments.
