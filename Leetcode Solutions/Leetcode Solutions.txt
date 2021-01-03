@@ -28,4 +28,29 @@ class Solution {
 }
 
 -----------------------------------------------------------------------------------------------
+Java Program to Check If a Given Number is Palindrome
+public static void palindrome(int number) {
+		int a = number;
+		int l = Integer.toString(number).length();
+		String result="";
+		int temp;
+		System.out.println(l);
+		while(l>=1){
+			temp=a%10;
+			a/=10;
+			result+=temp;
+			l-=1;
+		}
+		System.out.println(result);
+		int reverse=Integer.parseInt(result);
+		if(reverse==number){
+			System.out.println("Palindrome");
+		}
+		else{
+			System.out.println("not a palindrome");
+		}
+		
+	}
 
+    -------------------------------------------------------------------------------------------------------
+    

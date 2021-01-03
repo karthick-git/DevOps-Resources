@@ -1,0 +1,8 @@
+#program to check whether a given number or word or sentence is a palindrome
+n=input("Enter the input: ")
+n=n.replace(" ","")
+print(n[::-1])
+if n==n[::-1]: 
+  print('palindrome')
+else: 
+  print('not a palindrome')

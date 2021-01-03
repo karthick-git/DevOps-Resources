@@ -135,4 +135,4 @@ Global will be executed before Local normally.We can have more than one global h
 
 Cucumber with TestNG:
 To convert a Junit project to TestNG, just add the TestNG depenedencies in pom.xml. Add a TestRunner class with the available template on the internet and just update the paths. Add a TestNG.xml file and provide the TestRunner class inside it.
-Best to execute it as Maven from cmd instead of Running the TestNG xml file.
+Best to execute it as Maven from cmd instead of Running the TestNG xml file. Use mvn clean install command.

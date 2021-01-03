@@ -1,0 +1,104 @@
+//program to check whether a given number or word or sentence is a palindrome
+sample input : 1221, malayalam, nurses run
+public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String datatype = sc.nextLine();
+		int number;
+		String word;
+		String sentence;
+		if(datatype.equalsIgnoreCase("integer")){
+			number=sc.nextInt();
+			System.out.println(number);
+			if(number==0){
+				System.out.println(0);
+			}
+			else if(number<=0){
+				System.out.println("please enter a positive number");
+			}
+			else if(number/10==0){
+				System.out.println(number);
+			}
+			else{
+				int temp = number;
+				String result="";
+				while(temp>0){
+				int rem = temp%10;
+				temp/=10;
+				result+=rem;
+				}
+			System.out.println(Integer.parseInt(result)==number?"Palindrome":"Not a palindrome");
+			}
+		}else if(datatype.equalsIgnoreCase("word")){
+			word = sc.next();
+			String result ="";
+			char[] chararray = word.toCharArray();
+			for(int i=chararray.length-1;i>=0;i--){
+				result+=chararray[i];
+			}
+			System.out.println(result);
+			System.out.println(word.equals(result)?"Palindrome":"Not a palindrome");
+		}
+		else if(datatype.equalsIgnoreCase("sentence")){
+			sentence=sc.nextLine();
+			sentence=sentence.replace(" ", "");
+			String result ="";
+			char[] chararray = sentence.toCharArray();
+			for(int i=chararray.length-1;i>=0;i--){
+				result+=chararray[i];
+			}
+			System.out.println(result);
+			System.out.println(sentence.equals(result)?"Palindrome":"Not a palindrome");
+		}
+
+		System.out.println("finished");
+	}
+
+#Check if the given string is a palindrome using String builder
+public static void main(String[] args) {
+ 
+  // Taking input from user
+  Scanner sc = new Scanner(System.in);
+  System.out.println("Please enter the string to know palindrome:");
+  String inputByUser = sc.nextLine();
+  
+  //Converting String in to StringBuilder
+  StringBuilder strOriginal = new StringBuilder(inputByUser);
+  
+  // reversing string
+  StringBuilder strReverse = new StringBuilder(strOriginal).reverse();
+  
+  //since stringBuildr/Buffer do not override equals method so it will not check content
+  //To verify content we can use valueOf method of String class. This method class toString() internally.
+  if (String.valueOf(strOriginal).equals(String.valueOf(strReverse)))
+   System.out.println("Result:Palindrome");
+  else
+   System.out.println("Result:Not Palindrome");
+  
+  //Another way to verify content  using toString()
+  if ((strOriginal.toString()).equals(strReverse.toString()))
+   System.out.println("Result:Palindrome");
+  else
+   System.out.println("Result:Not Palindrome");
+  
+  //Using compareTo method
+  if ((strOriginal.toString()).compareTo(strReverse.toString()) == 0)
+   System.out.println("Result:Palindrome");
+  else
+   System.out.println("Result:Not Palindrome");
+ }
+
+// Java Program to Extract Numbers From String and Add
+ public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	String input = sc.nextLine();
+	char[] chararray=input.toCharArray();
+	System.out.println(chararray);
+	int sum=0;
+	for(int i=0;i<chararray.length;i++){
+		if(Character.isDigit(chararray[i])){
+			// the Character.valueOf will return the ascii value of that character, so negating '0' will return the exact value
+			sum+=Character.valueOf(chararray[i])-'0';
+		}
+	}
+	System.out.println(sum);
+	}
